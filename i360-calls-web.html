@@ -1,0 +1,196 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mark Nugent &mdash; UX and interaction design</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700,300,400|Roboto:500,400italic,300,300italic,400' rel='stylesheet' type='text/css'>
+    <!--link rel="stylesheet" href="css/animate.css" /-->
+    <link rel="stylesheet" href="bower_components/lightbox2/dist/css/lightbox.css">
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" title="light" href="css/light.css" />
+    
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+   
+    <script>
+      if ($.cookie("light_theme")) {
+      var light_theme = $.cookie("light_theme");
+    console.log('light_theme is ' + light_theme);
+      if (light_theme === 'yes') {
+        $("link[title='light']")[0].disabled = false;
+      } else {
+        $("link[title='light']")[0].disabled = true;
+        $.cookie("light_theme", 'no')
+      }
+    }
+    </script>
+    <!--link rel="stylesheet" href="css/main.css" / -->
+    <!--script src="//use.typekit.net/zei5xwb.js"></script-->
+    <!--script>try{Typekit.load();}catch(e){}</script-->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <script src="js/velocity.min.js"></script>
+    <script src="js/velocity.ui.min.js"></script>
+    <script src="js/picturefill.min.js"></script>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="row collapse header">
+        <div class="columns hdr-box">
+          <a href="/">
+            <h1 class="hdr-name">Mark Nugent</h1>
+          </a>
+          <h2 class="hdr-tagline show-for-medium-up">UX, interaction design, <br>and front-end development</h2>
+          <ul class="top-nav">
+            <li class="active"><a href="portfolio.html" class="nav-button active">portfolio</a></li><li>
+            <a href="resume.html" class="nav-button inactive">r&eacute;sum&eacute;</a></li>
+          </ul>
+        </div>
+      </div><!-- .row .header -->
+      <div class="row">
+        <!--div class="utility-bar animated-fast fadeInDown"-->
+        <div class="utility-bar">
+          <div class="ub-back">
+            <a href="portfolio.html">main portfolio page</a>
+          </div>
+        </div><!-- .utility-bar -->
+      </div><!-- .row  -->
+      <div class="row">
+        <div class="theme-switcher">
+            <p><span></span> (<a id="switch_link" href="javascript: void();">switch</a>)</p>
+        </div>
+      </div>
+      <div class="pnl-set">
+        <div class="row collapse">
+          <div class="pnl column">
+            <div class="pnl-head">
+              <h3 class="pnl-title">i360 Calls for iOS and Android</h3>
+              <div class="port-catlabel-set">
+                <span class="port-label">UX</span><span class="port-label">visual design</span>
+              </div>
+              <div class="pnl-head-helper">
+                Click on an image to enlarge.
+              </div>
+          </div><!-- .pnl-head -->
+          <div class="pnl-copy">
+            <div class="port-img">
+              <a href="/images/port-page-img/calls-wf-zoom.png" data-lightbox="calls-web" data-title="Sample wireframe (<a href='/images/port-page-img/calls-wfvec.pdf'>view PDF version</a>)">
+                <img src="images/port-page-img/calls-web-1a.png" srcset="images/port-page-img/calls-web-1a@2x.png 1072w, images/port-page-img/calls-web-1a.png 536w" width="536" alt="Calls Web 1">
+              </a>
+            </div><!--.port-img-->
+
+             <h4>Background</h4>
+             <p>
+              i360 needed to update the web client for its Predictive Dialer software for placing phone surveys. (
+              For more background on the PD and i360 Calls, see the <a href="i360-calls-ios.html">i360 Calls for iOS and Android</a> portfolio item.)
+              </p><p>
+               The Predictive Dialer had a number of performance and usability problems. An <a href="http://aspnet-rocks.blogspot.com/2011/10/disadvantages-of-aspnet-web-forms.html">ASP.NET Web Forms</a> application, it was not written with modern front-end code and employed off-the-shelf UI components that were poorly matched to the user’s tasks, and it was especially unfriendly as a touch interface. For example, drop-down lists were used to enter survey answers, meaning that the possible answers were initially hidden from the user, who had to click on the widget to reveal the answer list, and then click again to select an answer:
+               
+              </p>
+              <img src="images/port-page-img/plantovote.jpg" width="262" style="margin: 0 0 16px;"/><p>
+              The new Web client, now called i360 Calls, was to be rewritten using AngularJS. This allowed me to take a redesign from concept and mockups all the way to implementing the design in semantic HTML and CSS.
+              </p>
+              <div class="port-img"><!-- second column -->
+              <a href="/images/port-page-img/calls-web-1-zoom.png" data-lightbox="calls-web" data-title="Ready screen with non-modal alert mockup">
+                  <img src="images/port-page-img/calls-web-1.png" srcset="images/port-page-img/calls-web-1@2x.png 1072w, images/port-page-img/ialls-web-1.png 536w" width="536" alt="Calls Web 1">
+                </a>
+            </div><!-- .port-img --> 
+              <h4>The Users</h4>
+
+              <p>
+                As was the case with i360 Calls for iOS and Android, the users were mainly volunteers and entry-level staffers who could not be assumed to have any special expertise beyond web-browsing skills. Many of our own staffers would also be using and testing the app. Therefore, I had some access to eventual users, but for various reasons, I wasn't able to gather as much information about our main user base as I would have liked.
+              </p>
+
+              <h4>Design &amp; Development</h4>
+              <p>
+                After gathering requirements from management and our internal users of the app, I set out to build a set of wireframes. I had spent a good deal of time with the previous version of the app, so I was well acquainted with its shortcomings.
+              </p>
+              <a class="body-button" href="images/port-page-img/calls-wfvec.pdf">Wireframe Excerpt (PDF)</a><br>&nbsp;
+              <p>
+                After several rounds of feedback and revisions, I implemented the designs into HTML prototypes that would serve as the basis for the app’s HTML and CSS code.
+              </p>
+              <div class="port-img"><!-- second column -->
+                <a href="/images/port-page-img/calls-web-2-zoom.png" data-lightbox="calls-web" data-title="Connected screen mockup">
+                    <img src="images/port-page-img/calls-web-2.png" srcset="images/port-page-img/calls-web-2@2x.png 1072w, images/port-page-img/ialls-web-2.png 536w" width="536" alt="Calls Web 2">
+                  </a>
+              </div><!-- .port-img -->
+              
+              
+              <p>
+                I consolidated the questions and answers onto a single screen in order to eliminate the need to load a new page for each question/answer pair &mdash; instead, the user could quickly scan the entire survey’s questions and answers. For answer selection, I employed standard HTML radio-button and checkbox widgets while making large, button-like labels in CSS. This particularly improved usability for tablet users, who had trouble with the small, fussy controls employed on the previous version of the app.
+              </p>
+             
+            <p>
+                While we originally planned to use AngularJS to implement the app, we had to use Web Forms for the initial iteration, which necessitated a good deal of work retrofitting the front-end code to accommodate Web Forms&rsquo;s peculiarities. The second iteration was built using AngularJS, which allowed much more of the original package of HTML and CSS to be used for the project. Through all phases of development, I worked closely with our programmers and QA team. 
+              </p>
+              <div class="port-img"><!-- second column -->
+                 <a href="/images/port-page-img/calls-web-3-zoom.png" data-lightbox="calls-web" data-title="Questions screen mockup (<a href='pd-htmlcss/survey.html'>full html version</a>)">
+                    <img src="images/port-page-img/calls-web-3.png" srcset="images/port-page-img/calls-web-3@2x.png 1072w, images/port-page-img/ialls-web-3.png 536w" width="536" alt="Calls Web 3">
+                  </a>
+                  <br /> &nbsp;<br />&nbsp;
+              </div><!-- port-img -->
+              <a class="body-button" href="pd-htmlcss/survey.html">HTML Prototype Page Sample</a>&nbsp;<br>&nbsp;
+              <p>
+                The sample page linked above shows part of an HTML/CSS prototype of a question-and-answer page. I wrote the front-end code following object-oriented CSS principles. I used LESS to write stylesheets and a subset of the Bootstrap framework for elements like alerts and dialog boxes.
+              </p>
+              
+              <h4>Results &amp; Conclusion</h4>
+
+              <p>
+                The management was pleased with this redesign of the Calls for Web and felt that it had been long overdue. We also got positive reviews from our own staffers who tested and used the app themselves and were also responsible for setting it up and demonstrating it for clients. The application was also met with praise from clients, who praised it for its ease of use. Unfortunately, we did not engage in formal usability testing or gather feedback in a systematic way, which would probably have benefited the app greatly and uncovered usability issues.  
+              </p><p>
+                I was especially pleased to be able to implement the design myself using HTML and LESS, working closely with our developers, which allowed me to make fine-grained adjustments to the app’s appearance and behavior. 
+              </p><p>
+              &nbsp;
+              </p>
+
+
+          </div><!-- .pnl-copy -->
+   
+
+
+        </div><!-- .pnl -->
+      </div><!-- .row -->
+
+
+    </div><!-- pnl-set -->
+
+     <div class="row">
+        <div class="column footer">
+          <a href="mailto:mark@nuge.co">mark@nuge.co</a> &bull; (734) 218-5869
+          <br />
+          Made with <a href="http://foundation.zurb.com/">Foundation</a>, <a href="http://julian.com/research/velocity/">Velocity.js</a>, and <a href="https://jquery.com/">jQuery</a>
+        </div>
+      </div>
+  </div><!-- .main-container -->
+  <a href="#0" class="cd-top">Top</a>
+  <!-- back-to-top linkbutton from http://codyhouse.co/gem/back-to-top/ -->
+
+<!-- picture element demo.
+
+  <picture>
+    <source media=”(min-width: 45em)” srcset=”original.jpg, original-hd.jpg 2x”>
+    <source media=”(min-width: 18em)” srcset=”cropped-medium.jpg, cropped-medium-hd.jpg 2x”>
+    <source srcset=”cropped-small.jpg, cropped-small-hd.jpg 2x”>
+    <img src=”cropped-small.jpg” alt=”The President shaking hands with Robert Anton Wilson” >
+</picture>
+
+-->
+    
+  <script src="bower_components/foundation/js/foundation.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/port.js"></script>
+  <script src="bower_components/lightbox2/dist/js/lightbox.js"></script>
+  <script>
+   lightbox.option({
+    'resizeDuration': 110,
+    'maxWidth': 900,
+   // 'maxHeight': 230,
+    'fadeDuration': 220,
+    'wrapAround': false,
+    'positionFromTop': 20,
+    'fitImagesInViewport': true
+  })
+</script>
+</body>
+</html>

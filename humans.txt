@@ -1,0 +1,8 @@
+/* TEAM */
+	Mark Nugent
+	Twitter: @mark_nugent
+
+/* SITE */
+	Standards: HTML5, CSS3
+	Components: Zurb foundation, jQuery, picturefill.js, lightbox2, velocity.js
+	Software: Sublime Text, Sketch, Adobe Illustrator, Adobe Photoshop, CodeKit, tinypng.com

@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+
+<head>
+    <title>Take Survey</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<script>
+  $(window).scroll(function(){
+//    var aboveHeight = ($('.utility-button-container').outerHeight());
+    if ($(window).scrollTop() > 89){
+    //  $('nav').addClass('fixed').css('top','0').next().css('padding-top', ($('#pagenav-container').outerHeight()+'px'));
+        $('.utility-button-container').addClass('ubc-fixed');
+        } else {
+        $('.utility-button-container').removeClass('ubc-fixed')
+        }
+  });
+</script>
+  <header>
+      <div class="header-inner">
+          <a href="#"><h1>i360</h1></a>
+          <a href="#" class="btn-utility btn-logout">Sign Out</a>
+      </div>  
+  </header>
+  <div class="main">
+    <h2 class="page-head">Take Calls
+      <div class="utility-button-container">
+                <!--The "break between calls" and (if using a VOIP client) "mute" buttons-->
+                <div class="utility-cbx-button" ng-show="agent.callStatus == 'ConferenceIn' &amp;&amp; $root.agentCallType == 'MakeWebCall'">
+                    <input type="checkbox" id="muteButton" class="utility-cbx-button ng-pristine ng-valid" onchange="//$('.utility-button-container .warning-text').toggle();">
+                    <div class="warning-text">Your microphone is muted.</div>
+
+                    <label for="muteButton">Mute</label>
+                    
+                    
+                    
+                </div>
+                <div ng-show="$root.agentCallType != 'SelfCall'" class="utility-cbx-button">
+                    <input type="checkbox" id="breakBetweenCalls" ng-model="rootFields.ckBreakCalls" class="ng-pristine ng-valid">
+                    <label for="breakBetweenCalls">Break between calls</label>
+                </div>
+
+            </div>
+      </h2>
+    <div class="page-content">
+      <div class="status-panel">
+        <h3 class="connected-icon">Connected</h3>
+        <p>John Smith<br>
+          294 Framingham Road, Springfield, Mo.
+        </p>
+      </div><!-- .status-panel -->
+      
+      <!-- note that the .active class is added to the next element to give the speech bubble a bolder style when a call is connected -->
+      <h3>Survey Questions</h3>
+      <p class="script-line active">In your opinion, will the Affordable Care Act make your family's healthcare more or less reliable?</p>
+      <ul class="answer-list">
+        <li><input type="radio" name="q1" id="q1-1" value="x">
+            <label for="q1-1">More Reliable</label>
+        </li>
+        <li><input type="radio" name="q1" id="q1-2" value="y">
+            <label for="q1-2">Less Reliable</label>
+        </li>
+        <li><input type="radio" name="q1" id="q1-3" value="y">
+            <label for="q1-3">No Answer / Don't Know</label>
+        </li>
+        
+      </ul>
+      <p class="script-line active">Which of the following NFL football teams look pretty good this year? (Choose all that apply.)</p>
+      <ul class="answer-list">
+        <li>
+          <input type="checkbox" name="q1" id="cb1" value="x">
+          <label for="cb1">St. Louis Rams of Los Angeles</label>
+        </li>
+        <li>
+          <input type="checkbox" name="q1" id="cb2" value="x">
+          <label for="cb2">Cleveland Browns</label>
+        </li>
+        <li>
+          <input type="checkbox" name="q1" id="cb3" value="x">
+          <label for="cb3">Tampa Bay Buccanneers</label>
+        </li>
+        <li>
+          <input type="checkbox" name="q1" id="cb5" value="x">
+          <label for="cb5">No Answer / Don't Know</label>
+        </li>
+      </ul>
+      <h4 class="header-divider">End of Survey Questions</h4>
+
+      <h3>Closing</h3>
+      <p class="script-line active">Thank you for participating! This survey was paid for by i360 LLC.</p>
+      
+      <ul class="button-submit-set">
+        <li>
+          <button class="btn btn-main">Back
+          </button>
+        </li>
+        <li>
+          <button class="btn btn-primary btn-main">Finished
+          </button>
+        </li>
+    </div><!-- .page-content -->
+  </div><!-- .main -->
+</body>
+
+</html>

@@ -1,0 +1,401 @@
+﻿@media 
+(-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dpi) { 
+    header h1 {
+        background: url(../images/i360.logo@2x.png) no-repeat;
+    }
+}
+
+label {
+  font-weight: normal;
+}
+
+body {
+  color: #444;
+}
+
+header {
+    background-color: #23B0DA;
+    .header-inner {
+        width: 624px;
+        margin: 0 auto;
+        padding: 26px 0 32px;
+        h1 {
+            text-indent: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 83px;
+            height: 38px;
+            background: url(../images/i360-logo.png) no-repeat;
+            background-size: 83px 38px;
+            margin: 0;
+        }
+    }
+}
+
+h3 {
+  font-size: 15x;
+}
+
+.error-block {
+  color: @red;
+  font-size: 13px;
+  font-weight: normal;
+  margin-top: 16px;
+}
+
+.main {
+  background-color: white;
+  width: 624px;
+  min-height: 420px;
+  margin: -18px auto 28px;
+  
+}
+
+.page-head {
+  margin: 0;
+  padding: 20px 42px;
+  border-bottom: solid 1px #E7E7F1;
+  color: #b7b7c1;
+  font-size: 20px;
+}
+
+.page-content {
+  padding-left: 42px;
+  padding: 0 42px 40px;
+  margin: 28px 0 0;
+}
+
+/** buttons **/
+
+/*  Similar to Bootstrap conventions: http://getbootstrap.com/css/#buttons
+
+    .btn -- regular size, default style. First class declared for any button.
+
+*/
+
+h3 {
+  margin-top: 34px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 9px 14px 10px;
+    margin: 6px 4px 6px 0;
+    border-radius: 2px;
+    font-size: 14px;
+    line-height: 14px;
+    text-decoration: none!important; /* this !important seems necessary to prevent an issue   where the text picks up a blue underline style */
+    cursor: pointer;
+    color: #333;
+    white-space: nowrap; 
+    text-align: center;
+    border: 1px solid #ccc;
+    border-color: @default-button-color - #333;
+    background-color: @default-button-color; /* fallback */
+    background: linear-gradient(lighten(@default-button-color, 3%), 
+                                darken(@default-button-color, 1%));  
+    /* if the above bg/gradient are changed, be sure to copy into the disabled hover and active styles,
+        because you don't want hover effects and such on a diabled button
+        */
+    &:hover {
+        text-decoration: none;
+        background: linear-gradient(lighten(@default-button-color, 8%), 
+                                    lighten(@default-button-color, 1%));  
+        color: #333;
+    }
+
+    &:active {
+        background: linear-gradient(darken(@default-button-color, 2%), 
+                                    darken(@default-button-color, 6%));  
+        text-decoration: none;
+    }
+    &:disabled {
+        opacity: .6;
+        &:hover {
+            background: linear-gradient(lighten(@default-button-color, 5%), 
+                            darken(@default-button-color, 1%));  
+        }
+        &:active {
+            background: linear-gradient(lighten(@default-button-color, 5%), 
+                            darken(@default-button-color, 1%));  
+        }
+    }
+}
+
+.btn-primary {
+/* Primary buttons for taking some action (e.g. Save, Change Password, etc.) */ 
+    border-color: @primary-button-color - #080808;
+    background-color: @primary-button-color;
+    background: linear-gradient(lighten(@primary-button-color, 2%), 
+                                 darken(@primary-button-color, 2%));  
+    /* if the above bg/gradient are changed, be sure to copy into the disabled hover and active styles,
+    because you don't want hover effects and such on a diabled button
+    */
+    color:lighten(@primary-button-color, 60%);
+
+    &:hover, &:focus {
+        background: linear-gradient(lighten(@primary-button-color, 4%), 
+                                    @primary-button-color);
+        color: lighten(@primary-button-color, 60%);
+    }
+    &:active {
+        background: linear-gradient(@primary-button-color, 
+                                    darken(@primary-button-color, 10%));
+        color: lighten(@primary-button-color, 60%);
+    }
+
+    &:disabled {
+        &:hover {
+            background: linear-gradient(lighten(@primary-button-color, 3%), 
+                                 darken(@primary-button-color, 3%));  
+        }
+        &:active {
+              background: linear-gradient(lighten(@primary-button-color, 3%), 
+                                 darken(@primary-button-color, 3%));  
+        }
+    }
+}
+
+.btn-secondary {
+/* Not quite primary */ 
+
+    padding: 12px 14px 13px; 
+
+    border-color: @secondary-button-color - #080808;
+    background-color: @secondary-button-color;
+    background: linear-gradient(lighten(@secondary-button-color, 2%), 
+                                 darken(@secondary-button-color, 2%));  
+    /* if the above bg/gradient are changed, be sure to copy into the disabled hover and active styles,
+    because you don't want hover effects and such on a diabled button
+    */
+    color:lighten(@secondary-button-color, 50%);
+
+    &:hover, &:focus {
+        background: linear-gradient(lighten(@secondary-button-color, 4%), 
+                                    @secondary-button-color);
+        color: lighten(@secondary-button-color, 60%);
+    }
+    &:active {
+        background: linear-gradient(@secondary-button-color, 
+                                    darken(@secondary-button-color, 10%));
+        color: lighten(@secondary-button-color, 60%);
+    }
+
+    &:disabled {
+        &:hover {
+            background: linear-gradient(lighten(@secondary-button-color, 3%), 
+                                 darken(@secondary-button-color, 3%));  
+        }
+        &:active {
+              background: linear-gradient(lighten(@secondary-button-color, 3%), 
+                                 darken(@secondary-button-color, 3%));  
+        }
+    }
+}
+
+.btn-xsm {
+    border-radius: 0;
+    font-size: 10px;
+    line-height: 10px;
+    padding: 4px 6px;
+    margin: 1px;
+}
+
+.btn-sm {
+    border-radius: 1px;
+    font-size: 12px;
+    line-height: 12px;
+    padding: 5px 8px;
+    margin: 4px 0;
+}
+
+.btn-lg {
+    border-radius: 3px;
+    font-size: 16px;
+    padding: 11px 18px 12px;
+    margin: 8px 6px 8px 0;
+}
+
+.btn-main { /** This is for a centered, large button that would typically appear at the bottom of the page **/
+    border-radius: 3px;
+    font-size: 16px;
+    padding: 14px 22px 15px;
+    margin: 18px auto;
+    display: block;
+}
+/* nav bar */
+
+.btn-utility {
+  color: #F0F8FB;
+  text-decoration: none;
+  display: inline-block;
+  padding: 6px 12px 4px;
+  background-color: #309BC7;
+  font-size: 12px;
+  border-radius: 6px;
+  float: right;
+  margin-top: -30px;
+  &:hover {
+    text-decoration: none;
+    color: #F0F8FB;
+    background-color: #208bb7;
+  }
+}
+
+
+
+/*** bootstrap override ***/
+.form-control {
+  border-radius: 0;
+  }
+
+
+
+
+/***  FORMS  ***/
+
+/* forms build off Bootstrap base styles. */
+
+.yui3-g.form-group { /* hack, hack hack */
+    /*&:first-child {
+        padding-right: 8px;
+    }*/
+    label {
+        margin: 5px 8px 0 0;
+    }
+}
+
+select { 
+    /*line-height: 20px;*/
+    padding: 5px 6px;
+}
+
+/* multi-select: try this 
+    https://davidstutz.github.io/bootstrap-multiselect/    
+
+    or this
+    https://harvesthq.github.io/chosen/
+
+    or this
+    https://hemantnegi.github.io/jquery.sumoselect/sumoselect_demo.html
+
+    */
+
+/* Use these guys to have less-than-100%-width form elements */
+.input-width-1-2 {
+    width: 50%;
+}
+
+.input-width-3-4 {
+    width: 75%;
+}
+
+
+
+
+
+/*** DIALOGS ***/
+/* we're overriding some modal behavior from bootstrap here */
+
+.modal.modal-asp {
+    display: block;
+}
+
+.modal-bg {
+    background-color: #000000;
+    height: 100%;
+    opacity: 0.3;
+    width: 100%;
+    z-index: 199999;
+}
+
+.modal-open {
+    overflow: scroll;
+}
+
+.modal.fade .modal-dialog {
+  -webkit-transform: translate3d(0, -25%, 0);
+  transform: translate3d(0, -25%, 0);
+  -webkit-transition: -webkit-transform 0.1s ease-out;
+  -moz-transition: -moz-transform 0.1s ease-out;
+  -o-transition: -o-transform 0.1s ease-out;
+  transition: transform 0.1s ease-out;
+}
+.modal.in .modal-dialog {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.modal-content {
+  border: 1px solid #999999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000000;
+}
+
+.modal-backdrop.in {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+
+
+/*** pagination bar ***/ 
+
+
+/* pagination bootstrap overrides */
+
+.pagination {
+    > li {
+        a {
+            color: @text-link-color;
+        }
+    }
+    margin-top: 8px;
+}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background-color: #999;
+    border-color: #999;
+} 
+
+.pagination > li:first-child > a, .pagination > li:first-child > span {
+                  border-bottom-left-radius: 2px;
+                  border-top-left-radius: 2px;
+              }
+
+/* end bootstrap pagination overrides */
+
+.pag-bar {
+    .pag-left {
+        float: left;
+        font-size: 12px;
+        color: #777;
+    }
+    .pag-right {
+        float: right;
+    }
+    .pagination {
+        margin: 0;
+    }
+    select {
+        padding: 4px 4px;
+        border: solid 1px #bbb;
+        color: #666;
+        margin-right: 4px;
+    }
+}

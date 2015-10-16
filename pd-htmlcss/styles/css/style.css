@@ -1,0 +1,668 @@
+@import url(mBootstrap.css);
+@import url(mGrids.css);
+/* this is actually a small subset of Bootstrap */
+/* @import url(mBootstrapTheme.css);  */
+/*  navigation menu background (i360 blue)      */
+/*  color that appears behind tabs (dark blue)  */
+/* @primary-button-color: #4484bb; might go back to this... */
+/***
+
+   colors.css v2.0.0
+   http://clrs.cc
+   @mrmrs
+   MIT License
+
+***/
+body {
+  background-color: #E7E7F1;
+}
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+.clearfix:after {
+  clear: both;
+  content: ' ';
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+.clearfix {
+  display: inline-block;
+}
+.clearboth {
+  clear: both;
+}
+strong {
+  font-weight: bold;
+}
+em {
+  font-style: italic;
+}
+a {
+  color: #3c6dc9;
+}
+pre {
+  margin: 10px 0;
+  background-color: #fffff9;
+  border: dotted 1px #ccc;
+}
+/*** headings and paragraphs ***/
+p {
+  line-height: 1.4em;
+}
+h1,
+h2,
+h3,
+h4,
+h6 {
+  margin: 10px 0 10px 0;
+  /*color: #333;*/
+  /* on the other hand, how about no default colors for 
+        base elements that will have to be overrided later
+        in kludgey fashion  */
+  /* h5 has its own, tighter margin. */
+}
+.hdr {
+  /* extends h1, .. h6 */
+  border-bottom: solid .1em #8f8f8f;
+  padding-bottom: .3em;
+  padding-bottom: 2px;
+}
+h1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+h2 {
+  font-size: 17px;
+  font-weight: bold;
+}
+h3 {
+  font-size: 14px;
+  font-weight: bold;
+}
+h4 {
+  font-size: 14px;
+  font-weight: normal;
+  font-style: italic;
+}
+h5 {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 3px 0 3px;
+}
+p {
+  margin: 10px 0;
+  font-size: 14px;
+}
+.code {
+  font-weight: normal;
+  font-family: Menlo, Monaco, Consolas, monospace;
+  font-style: normal;
+  color: #666;
+}
+.separator {
+  color: #ccc;
+  height: 2px;
+}
+/* boostrap overrides for modals */
+/* basic styles--html elements*/
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  header h1 {
+    background: url(../images/i360.logo@2x.png) no-repeat;
+  }
+}
+header {
+  background-color: #23B0DA;
+}
+header .header-inner {
+  width: 624px;
+  margin: 0 auto;
+  padding: 12px 0;
+}
+header .header-inner h1 {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 83px;
+  height: 38px;
+  background: url(../images/i360-logo.png) no-repeat;
+  background-size: 83px 38px;
+  margin: 0;
+}
+.main {
+  background-color: white;
+}
+/* common page structure elements */
+/* yui3 grid system */
+/*  Similar to Bootstrap conventions: http://getbootstrap.com/css/#buttons
+
+    .btn -- regular size, default style. First class declared for any button.
+
+    styles: [default (white),] .btnPrimary (blue/action)
+    sizes: .btnLg, [default,] .btnSm, .btnXs (square)
+
+    special styles to extend .btnXs: .btnEdit, .btnRemove
+
+    :disabled gets reduced opacity
+
+*/
+.btn {
+  display: inline-block;
+  padding: 9px 14px 10px;
+  margin: 6px 4px 6px 0;
+  border-radius: 2px;
+  font-size: 14px;
+  line-height: 14px;
+  text-decoration: none!important;
+  /* this !important seems necessary to prevent an issue   where the text picks up a blue underline style */
+  cursor: pointer;
+  color: #333;
+  white-space: nowrap;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-color: #c0c0c0;
+  background-color: #f3f3f3;
+  /* fallback */
+  background: linear-gradient(#ffffff, #f0f0f0);
+  /* if the above bg/gradient are changed, be sure to copy into the disabled hover and active styles,
+        because you don't want hover effects and such on a diabled button
+        */
+}
+.btn:hover {
+  text-decoration: none;
+  background: linear-gradient(#ffffff, #f6f6f6);
+  color: #333;
+}
+.btn:active {
+  background: linear-gradient(#eeeeee, #e4e4e4);
+  text-decoration: none;
+}
+.btn:disabled {
+  opacity: .6;
+}
+.btn:disabled:hover {
+  background: linear-gradient(#ffffff, #f0f0f0);
+}
+.btn:disabled:active {
+  background: linear-gradient(#ffffff, #f0f0f0);
+}
+.btn-primary {
+  /* Primary buttons for taking some action (e.g. Save, Change Password, etc.) */
+  border-color: #2e56af;
+  background-color: #5078d1;
+  background: linear-gradient(#5c81d4, #446fce);
+  /* if the above bg/gradient are changed, be sure to copy into the disabled hover and active styles,
+    because you don't want hover effects and such on a diabled button
+    */
+  color: #ffffff;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background: linear-gradient(#7091d9, #5078d1);
+  color: #ffffff;
+}
+.btn-primary:active {
+  background: linear-gradient(#5078d1, #325dbc);
+  color: #ffffff;
+}
+.btn-primary:disabled:hover {
+  background: linear-gradient(#5c81d4, #446fce);
+}
+.btn-primary:disabled:active {
+  background: linear-gradient(#5c81d4, #446fce);
+}
+.btn-xsm {
+  border-radius: 0;
+  font-size: 10px;
+  line-height: 10px;
+  padding: 4px 6px;
+  margin: 1px;
+}
+.btn-sm {
+  border-radius: 1px;
+  font-size: 12px;
+  line-height: 12px;
+  padding: 5px 8px;
+  margin: 4px 0;
+}
+.btn-lg {
+  border-radius: 3px;
+  font-size: 16px;
+  padding: 11px 18px 12px;
+  margin: 8px 6px 8px 0;
+}
+/*.btn-remove {
+    background-image: url('../Images/btnX.png'), linear-gradient(#fff, #f3f3f3);
+    background-position: 95% 50%, 0 0;
+    background-repeat: no-repeat;
+    padding-right: 16px;
+    &:hover, &:active {
+        background-image: url('../Images/btnX.png'), linear-gradient(#fff, #f3f3f3);
+        background-position: 95% 50%, 0 0;
+        background-repeat: no-repeat;
+    }
+}
+
+.btn-edit {
+    background-image: url('../Images/btnPencil.png'), linear-gradient(#fff, #f3f3f3);
+    background-position: 4px 50%, 0 0;
+    background-repeat: no-repeat;
+    padding-left: 16px; padding-right: 3px;
+    &:hover, &:active {
+        background-image: url('../Images/btnPencil.png'), linear-gradient(#fff, #f3f3f3);
+        background-position: 4px 50%, 0 0;
+        background-repeat: no-repeat;
+    }
+}*/
+.hdr-meta {
+  font-size: 12px;
+  float: right;
+  display: inline-block;
+  padding-top: 6px;
+  font-weight: normal;
+  color: #666;
+}
+.hdr-meta span.meta-item {
+  margin-right: 12px;
+}
+.hdr-meta span.meta-item strong {
+  color: #333;
+}
+/***  MODULES  ***/
+/* .mod: basic module container 
+    .mod-hd, .mod-bd: header, body
+    
+    */
+.mod {
+  /* basic container, other containers inherit from this */
+  position: relative;
+  margin-bottom: 18px;
+}
+.mod.mod-outline {
+  border: solid 1px #ddd;
+}
+.mod.mod-outline .mod-hd {
+  padding: 0 12px;
+}
+.mod.mod-outline .fold {
+  padding-left: 22px;
+  background-position: 7px 50%;
+}
+.mod.mod-outline .mod-bd > .inner {
+  padding: 10px 12px;
+}
+.mod.mod-outline.dark {
+  border: solid 1px #999;
+}
+.mod.stacked {
+  margin-bottom: 0;
+}
+.mod-hd {
+  border-bottom: solid 1px #ddd;
+}
+.mod-hd.dark {
+  background-color: #999;
+  border-bottom-color: #999;
+  color: #fff;
+  /*padding: 0 12px;*/
+}
+.mod-hd.light {
+  background-color: #f7f7f7;
+  border-bottom-color: #eee;
+  color: #666;
+  /*padding: 0 12px;*/
+}
+.mod-hd .white {
+  border-bottom: solid 1px #eee;
+  padding: 0 12px;
+  color: #333;
+}
+.mod-hd,
+.mod-bd,
+.mod-ft {
+  /* children of .mod-- head, body, foot */
+  overflow: hidden;
+}
+.gutter {
+  /* extends .module -- works with the grid system. Purpose is to add padding. */
+  margin-right: 10px;
+}
+.fold {
+  /* extends .mod-hd -- class for clickable headers of foldable (accordion-style) modules. */
+  padding-left: 18px;
+  background-image: url('../Images/closedown2x.png');
+  background-position: 2px 50%;
+  background-repeat: no-repeat;
+  background-size: 10px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.fold h1,
+.fold h2,
+.fold h3,
+.fold h4 {
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.fold.collapsed {
+  background-image: url('../Images/closeside2x.png');
+}
+/***  FORMS  ***/
+/* forms build off Bootstrap base styles. */
+.yui3-g.form-group {
+  /* hack, hack hack */
+  /*&:first-child {
+        padding-right: 8px;
+    }*/
+}
+.yui3-g.form-group label {
+  margin: 5px 8px 0 0;
+}
+select {
+  /*line-height: 20px;*/
+  padding: 5px 6px;
+}
+/* multi-select: try this 
+    https://davidstutz.github.io/bootstrap-multiselect/    
+
+    or this
+    https://harvesthq.github.io/chosen/
+
+    or this
+    https://hemantnegi.github.io/jquery.sumoselect/sumoselect_demo.html
+
+    */
+/* Use these guys to have less-than-100%-width form elements */
+.input-width-1-2 {
+  width: 50%;
+}
+.input-width-3-4 {
+  width: 75%;
+}
+/*** DIALOGS ***/
+/* we're overriding some modal behavior from bootstrap here */
+.modal.modal-asp {
+  display: block;
+}
+.modal-bg {
+  background-color: #000000;
+  height: 100%;
+  opacity: 0.3;
+  width: 100%;
+  z-index: 199999;
+}
+.modal-open {
+  overflow: scroll;
+}
+.modal.fade .modal-dialog {
+  -webkit-transform: translate3d(0, -25%, 0);
+  transform: translate3d(0, -25%, 0);
+  -webkit-transition: -webkit-transform 0.1s ease-out;
+  -moz-transition: -moz-transform 0.1s ease-out;
+  -o-transition: -o-transform 0.1s ease-out;
+  transition: transform 0.1s ease-out;
+}
+.modal.in .modal-dialog {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.modal-content {
+  border: 1px solid #999999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000000;
+}
+.modal-backdrop.in {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
+.modal-footer {
+  border-top: none;
+}
+/* sidebar modules (starting with tags) */
+.hd-tools {
+  border-bottom: solid 2px #333;
+}
+.hd-tools p {
+  float: left;
+}
+.hd-tools .tools {
+  float: right;
+  padding-top: 3px;
+}
+.hd-tools .tools a {
+  font-size: 12px;
+  margin-right: 6px;
+  cursor: pointer;
+}
+.tool-tabs {
+  display: inline-block;
+  margin: 0 16px 0 0;
+}
+.tool-tabs > li {
+  display: inline-block;
+  list-style-type: none;
+}
+.tool-tabs > li.active > a {
+  color: #666;
+  cursor: default;
+  background-color: #fff;
+  font-weight: bold;
+}
+.tool-tabs > li.active > a:hover {
+  text-decoration: none;
+}
+.table-hdr {
+  /* initially created to show one row of headers for the Tabs area on the contact details page */
+  background-color: #e8e8e8;
+  color: #515151;
+  font-size: 11px;
+}
+.table-hdr span {
+  display: inline-block;
+  padding: 3px 0;
+}
+/* the following isn't very graceful, but it was the best thing I could come up with. 
+    The problem is that all this stuff couldn't be contained in a single <table> but needs to act like it is. 
+    Some of this stuff is deprecated because it was written to support a html/js-based tag display, which ended up being tragically implemented in DevExpress
+        */
+.head-pre {
+  width: 16px;
+}
+.head-tag {
+  width: 184px;
+}
+.head-date {
+  width: 62px;
+}
+.head-added-by {
+  width: 126px;
+}
+.head-notes {
+  width: 136px;
+}
+.light-grid {
+  font-size: 11px;
+  width: 100%;
+}
+.light-grid td {
+  border-top: solid 1px #e3e3e3;
+  padding: 2px 0;
+}
+.light-grid td.head-pre {
+  border-top: none;
+}
+.mod.mod-tag-grid {
+  border-bottom: solid 1px #aaa;
+  padding-bottom: 3px;
+  margin-bottom: 2px;
+}
+.mod.mod-tag-grid .mod-hd {
+  border-bottom: none;
+}
+.tag {
+  background-color: #829fb1;
+  color: #fff;
+  margin: 2px 8px 2px 0;
+  line-height: 1.2em;
+  padding: 4px 8px 4px 16px;
+  font-size: 12px;
+  background: url(../Images/tag-topleft.png) no-repeat left top, url(../Images/tag-topright.png) no-repeat right top, url(../Images/tag-botleft.png) no-repeat left bottom, url(../Images/tag-botright.png) no-repeat right bottom, url(../Images/tag-bg.png);
+}
+.tag a {
+  text-decoration: none;
+  color: #fff;
+}
+.tag.tag-inline {
+  display: inline-block;
+  margin-right: 3px;
+}
+/*** pagination bar ***/
+/* pagination bootstrap overrides */
+.pagination {
+  margin-top: 8px;
+}
+.pagination > li a {
+  color: #3c6dc9;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #999;
+  border-color: #999;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+/* end bootstrap pagination overrides */
+.pag-bar .pag-left {
+  float: left;
+  font-size: 12px;
+  color: #777;
+}
+.pag-bar .pag-right {
+  float: right;
+}
+.pag-bar .pagination {
+  margin: 0;
+}
+.pag-bar select {
+  padding: 4px 4px;
+  border: solid 1px #bbb;
+  color: #666;
+  margin-right: 4px;
+}
+/* light front-end grid, originally for PD report */
+/*.lite-grid {
+    /*border-collapse: collapse;*/
+/*   width: 100%;
+    margin-top: 10px;
+    border: solid 1px #ccc;
+    margin-bottom: 12px;
+    border-bottom: solid 2px #ccc;
+    font-size: 12px;
+    td {
+        border-bottom: solid 1px #f3f3f3;
+        padding: 3px 0;
+    }
+    th {
+        text-align: left;
+        background-color: #d7d7d7;
+        color: #666;
+        font-size: 12px;
+        padding: 4px 0;
+    }
+    tr:last-child td {
+        border-bottom: solid 1px #ccc;
+    }
+    .grouping-cell {
+        width: 25px;
+    }
+    .lg-data-row {
+        td {
+            height: 2px;
+            overflow: hidden;
+        }
+    }
+}
+.lg-group-row {
+    td {
+        font-weight: bold;
+        font-size: 13px;
+        padding: 4px 0;
+        background-color: #f0f0f0;
+        border-bottom: solid 1px #dedede;
+        span.lg-group-meta {
+            font-weight: normal;
+            padding-left: 4px;
+            color: #777;
+        }
+        &:first-child {
+            background: url(../Images/arrowdown-2x.png) no-repeat 6px 8px, #f0f0f0;
+            background-size: 10px 10px; 
+        }
+        
+    }
+    &.in td:first-child {
+            background: url(../Images/arrowright-2x.png) no-repeat 6px 8px, #f0f0f0;
+            background-size: 10px 10px;
+    }
+}
+.lg-filter-bar {
+    font-size: 12px;
+    td {
+        padding: 4px 0;
+        border: none;
+        background-color: #fcfcfc;
+    }
+
+    select {
+        padding: 1px 3px;
+        color: #999;
+        border-color: #ccc;
+    }
+    td:first-child {
+        background: url(../Images/filter-glass.png) no-repeat 5px 6px, #fcfcfc;
+     
+    }
+    td:last-child {
+     
+    }
+    input {
+        padding: 2px 3px 1px;
+        border: solid 1px #ccc;
+        line-height: 13px;
+        &.volname {
+            width: 200px;
+        }
+    }
+}
+    */
+/* more specific styles plus page-specific stuff */
