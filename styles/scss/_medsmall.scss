@@ -1,0 +1,119 @@
+@media screen and (min-width: 550px) { //medsmall
+  // 520 is width of flash element
+
+  .dev__small {
+    display: none;
+  }
+  .dev__medsmall {
+  //  display: block;
+  }
+
+  .container {
+    margin: 2rem;
+  }
+  .header--name {
+    width: auto;
+    h1 {
+      display: inline-block;
+      font-size: 34px;
+      line-height: 34px;
+      margin: 0 0 8px;
+      span {
+        // display: inline-block;
+      }
+    }
+  }
+  .main-nav {
+    text-align: right;
+  }
+  .main-nav--item {
+    font-size: 33px;
+    line-height: 33px;
+    height: auto;
+    margin-right: 0;
+    margin-left: 10px;
+  }
+  .home-main--firstcol {
+    // width: 30%;
+    // max-width: 540px;
+    width: 100%;
+  }
+  .home-letter {
+    max-width: 500px;
+    margin: 3rem auto;
+    padding: 0 4rem;
+    font-size: 17px;
+  }
+  .home-letter--hellotext {
+    font-size: 21px;
+    line-height: 21px;
+  }
+  .home-main--secondcol {
+    order: 2;
+    width: 100%;
+    max-width: none;
+    border-top: solid 4px #fff;
+    border-bottom: none;
+  }
+
+  .portfolio-panel {
+    width: 450px;
+    margin: 12px 10px 8px;
+  }
+
+  .portfolio-panel--header {
+    h3 {
+      font-size: 21px;
+      margin: 6px 0 8px 10px;
+      width: 49%;
+      display: inline-block;
+
+    }
+  }
+  .portfolio-panel--info {
+    width: 46%;
+    margin-top: 6px;
+    display: inline-block;
+    text-align: right;
+    p {
+
+    }
+  }
+  .portfolio-panel--image {
+    min-height: 252px;
+  }
+  .topbar__resume {
+    height: 42px;
+    padding: 4px 12px 8px;
+  }
+
+  .topbar--sec1 {
+    width: 48%;
+    float: left;
+  }
+  .topbar--sec2 {
+    width: 48%;
+    float: right;
+  }
+  .topbar--resumebuttonlist {
+    justify-content: flex-end;
+  }
+
+  .resume-item {
+    font-size: 15px;
+
+  }
+  .resume-subhead {
+
+  }
+  .resume-item--eyebrow {
+
+  }
+  .resume-item--title {
+
+  }
+  .resume-item--subhead {
+
+  }
+
+} // end @media min-width 520

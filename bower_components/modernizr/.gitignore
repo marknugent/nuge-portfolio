@@ -1,2 +1,4 @@
-modernizr.min.js
-.DS_Store
+vendor
+build
+node_modules
+components

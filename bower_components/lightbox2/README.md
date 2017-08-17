@@ -11,22 +11,78 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 
 ## Roadmap
 
-- **Maintenance.** Get open Issues and PRs number down.
-- **Mobile experience.** Redo animations and interactions from scratch and include gesture support.
+### Actively being worked on
 
-### v3.0 - IN PLANNING PHASE
+- **Maintenance.** Geting open Issues and PRs number down. Not working on new features for v2.x.
 
+### Features *NOT* on the roadmap
+
+The goal of this script from it's beginnings till today is to to provide a better *image viewing experience*.
+
+- **HTML or video content.**  If you need to show html or video content, I recommend googling for an alternative script as there are many options.
+- **Social sharing buttons.** 
+
+### v3.0 - In Brainstorming Phase
+
+**Interactions**
 - Add touch gesture support.
+- Exploring using tilt gesture on mobile devices with extra-wide images.
+- If user attempts to go forward when at end of image set, animation (shake?) indicating the end or option to close Lightbox.
+- Make sure right-click/long pressing works to access the image's context menu.
+
+**Layout**
+- Allow vertical centering.
+- Update sizing on window resize.
+- Should the dev be able to choose the position of the caption, close button, and nav controls?
 - Optimize layout for mobile.
 - Optimize layout for screens of varying densities.
+- Should the close button still live in the bottom right corner?
+
+**Animations**
+- Evaluate start, end, and transition animations.
+- Rewrite animations for performance and flexibility.
+
+**Assets**
 - Use inline SVG for UI elements.
+
+**Caching**
+- Review if and how images should be preloaded
+
+**Accessibility**
+- Should opening lightbox update the url? and should this url be parsed on page load to show Lightbox automatically?
+- Review alt attributes.
+- Review ARIA roles.
+- Review constrast ratios.
+- Review keyboard input and tabbing.
+- Review click/touch target size.
+- Test with screen reader.
+
+**API**
 - Do not initialize automatically and allow multiple instances.
 - Add event handlers.
-- Evaluate start, end, and transition animations.
+- Allow setting options on the fly.
+- Allow the setting of options from HTML?
+- Allow instantiation with jQuery plugin syntax.
 - Evaluate preloading and caching.
 - Evaluate droppping jQuery requirement.
+- Allow placement inside of a specified element? Orig feature requester was dealing with iframe.
 
 ## Changelog
+
+### v2.9.0 - 2016-10-30
+
+- [Fix] Allow loading of lightbox.js anywhere on page. Prev requirement was at the end of the body tag. [Commit](https://github.com/lokesh/lightbox2/commit/7047214f77cfc8f892e8513426b57d45bf29e9cd)
+- [Add] Add imageFadeDuration option. [Commit](https://github.com/lokesh/lightbox2/commit/6d5f99a65f189a5d2bd7bbfac4682fe36e62871e)
+- [Change] Right-clicking image now shows context menu for image. [Commit](https://github.com/lokesh/lightbox2/commit/363c3cb8af8fae1b6f95d6679df976022290f878)
+- [Change] Allow controlling of image border with a simpler css border vs a parent container padding _hack_. [Commit](https://github.com/lokesh/lightbox2/commit/214361297f1dd5f0c19c1d80ff37c398cdda55cb)
+
+### v2.8.2 - 2015-12-13
+
+- [Add] npm support. ```npm install --save lightbox2```
+- [Add] Add option to disable vertical scrolling [#487](https://github.com/lokesh/lightbox2/pull/487) Thanks [blacksunshineCoding](https://github.com/blacksunshineCoding)
+- [Fix] When horizontal scrolling is on page the overlay is not covering entire page [#485](https://github.com/lokesh/lightbox2/pull/485) Thanks [@manuel-io](https://github.com/manuel-io)
+- [Change] Add css minify task to Gruntfile.js and removedlegacy css vendor prefixes for border-radius. [#470](https://github.com/lokesh/lightbox2/pull/470) Thanks [ajerez](https://github.com/ajerez)
+
 
 ### v2.8.1 - 2015-07-09
 
@@ -35,6 +91,7 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 ### v2.8.0 - 2015-06-29
 
 - [Add] UMD support (AMD, CommonJS, fallback to global export).[#461](https://github.com/lokesh/lightbox2/pull/461)
+- [Add] option method for setting options. [#461](https://github.com/lokesh/lightbox2/commit/d708fbd716aaa90e01ba4198944c8955e7283d87)
 - [Add] CONTRIBUTING.md
 
 ### v2.7.4 - 2015-06-23

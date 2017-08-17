@@ -1,0 +1,667 @@
+// $maincolor: #FF1616;
+$maincolor: #FF4136;
+$secondarycolor: #18303e;
+$linkcolor: #1D25C4;
+$portfoliodetail-topbar-color: #9c9c9c;
+$resume-topbar-color: #334850;
+
+.dev {
+    position: fixed;
+    left: 2px; top: 2px;
+    background-color: rgba(255,255,255,0.70);
+    padding: 0 4px;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 18px;
+    display: none;
+}
+
+.dev__small {
+//  display: block;
+}
+
+a {
+  color: $linkcolor;
+  text-decoration: none;
+  &:hover {
+    color: darken($linkcolor, 10%);
+    //text-decoration: underline;
+  }
+}
+.main-nav a {
+  color: #333;
+  text-decoration: none;
+  &:hover {
+    color: #666;
+    // color: darken($maincolor, 10%);
+    //text-decoration: underline;
+  }
+}
+p {
+  margin: 0 0 1em 0;
+}
+
+html, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+}
+body {
+  margin: 0;
+}
+
+.container {
+  margin: 1rem;
+  max-width: 1000px;
+}
+
+.header {
+    border-bottom: solid 4px #333;
+    margin-bottom: 8px;
+    padding-bottom: 0;
+    @include clearfix;
+}
+
+.header--name {
+
+  h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #333;
+    line-height: 24px;
+    margin: 0;
+    display: inline-block;
+    span {
+      padding-left: 2px;
+      font-weight: 400;
+      color: #444;
+      display: none;
+    }
+  }
+  h2 {
+
+    font-size: 23px;
+    font-weight: 300;
+    color: #333;
+    line-height: 21px;
+    margin: 0 0 8px;;
+    display: none;
+  }
+}
+.header--nav {
+//  border-top: solid 4px #aaa;
+  padding-top: 4px;
+}
+.main-nav--item {
+  box-sizing: content-box;
+  display: inline-block;
+  font-weight: 300;
+  line-height: 23px;
+  font-size: 23px;
+  height: 22px;
+  padding: 0 0 8px 0;
+  margin: 0 5px 0 0;
+}
+.main-nav--item__active {
+  padding-bottom: 6px;
+  margin-bottom: 0;
+  border-bottom: solid 3px #333;
+}
+
+.home-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+
+  margin-bottom: 1rem;
+  color: #fff;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.home-main--firstcol {
+  -webkit-font-smoothing: antialiased;
+  order: 1;
+  opacity: 0;
+  background-color: $secondarycolor;
+  animation-name: fadeinscale;
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+//  animation: fadeinscale 1s ease-in-out 1;
+//  transform: perspective( 600px ) rotateY( 45deg );
+}
+
+.home-main--secondcol {
+  order: 0;
+  opacity: 0;
+  overflow: hidden;
+  width: 100%;
+  max-width: 520px;
+  border-bottom: solid 8px #fff;
+  background-color: $maincolor;
+  animation-name: fadeinscale;
+  animation-delay: .6s;
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+//  transform: perspective( 600px ) rotateY( 25deg );
+}
+
+.home-letter {
+  font-size: 15px;
+  opacity: 0;
+  margin: 2rem;
+  animation-name: fadein;
+  animation-duration: .8s;
+  animation-timing-function: ease-in-out;
+  animation-delay: .7s;
+  animation-fill-mode: forwards;
+  a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
+.home-letter--signature {
+  position: relative;
+  left: -6px;
+}
+.home-letter--hellotext {
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+.home-letter--photo {
+  display: none;
+}
+
+.footer__internal {
+    border-top: solid 4px #333;
+    padding-top: 16px;
+}
+
+.footer {
+  color: #888;
+  font-size: 15px;
+  padding-bottom: 20px;
+  a {
+    color: #888;
+    text-decoration: underline;
+  }
+  text-align: center;
+}
+.footer--icon {
+  margin: 0 2px;
+}
+.footer--middle {
+  margin-top: 6px;
+}
+
+.topbar {
+  opacity: 0;
+  position: relative;
+//  background-color: #555;
+  // background-color: rgba(32, 65, 85, 0.96);
+  background-repeat: no-repeat;
+  background-size: 1000px 40px;
+//  height: 24px;
+  text-align: left;
+    animation-name: fadein;
+    animation-duration: .5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  h2 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 6px 14px;
+    margin: 0;
+    color: #FFFFFF;
+  }
+}
+
+.topbar__resume {
+  background-color: #334850;
+}
+.topbar__portfolio {
+  display: none;
+
+//  background-image: url(/images/topbar-a@2x.png);
+}
+.topbar__portfolio-detail {
+//  background-image: url(/images/topbar-b@2x.png);
+  background-color: $portfoliodetail-topbar-color;
+  height: 24px;
+}
+.topbar--button {
+
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  a {
+    background-color: #eaeaea;
+    font-size: 15px;
+    line-height: 15px;
+    padding: 3px 12px 3px 8px;
+    top: 0;
+    left: 0;
+  //  border: solid 2px #ccc;
+    margin: 0;
+    &:hover {
+      background-color: #f3f3f3;
+    }
+  }
+}
+
+.main {
+  margin-top: 16px;
+}
+.main__portfolio {
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+}
+.main__portfolio-detail {
+
+}
+
+.clearboth {
+  @include clearfix;
+  clear: both;
+}
+.portdetail-header {
+  @include clearfix;
+  clear: both;
+  opacity: 0;
+  animation-name: fadein;
+  animation-duration: .5s;
+  animation-delay: 0;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  margin-top: 18px;
+  margin-bottom: 14px;
+  h3 {
+    color: #444;
+    margin: 0 0 4px;
+    padding: 0 0 4px;
+    font-weight: 700;
+    font-size: 19px;
+    border-bottom: solid 1px #555;
+  }
+  h5 {
+    padding-top: 20px;
+    padding-bottom: 8px;
+    margin-bottom: 18px;
+    font-size: 20px;
+    font-weight: 500;
+
+    border-bottom: solid 1px #333;
+  }
+  p {
+    font-weight: 700;
+    padding: 1px 0;
+    margin: 0;
+    color: #999;
+    font-size: 12px;
+    line-height: 12px;
+  }
+}
+
+.portdetail-body {
+  opacity: 0;
+  animation-name: fadein;
+  animation-duration: .6s;
+  animation-delay: .25s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  margin-top: 10px;
+  color: #444;
+  font-size: 13px;
+  line-height: 1.45em;
+  h4 {
+    font-size: 15px;
+    color: #444;
+  }
+  p {
+    color: #555;
+    margin: 1em 0;
+    font-size: 13px;
+    max-width: 520px;
+
+  }
+}
+
+
+.portfolio-panel {
+  width: 100%;
+  margin: 0 auto 16px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 4px;
+  position: relative;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  // thx to Tobias Ashlin, a genius http://tobiasahlin.com/blog/how-to-animate-box-shadow/
+  animation-name: fadeinscaleport;
+  animation-duration: .4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+}
+
+.portfolio-panel:hover {
+//  transform: scale(1.01, 1.01);
+//   opacity: 1;
+//  animation-name: blowup;
+  // animation-duration: .4s;
+  // animation-timing-function: ease-in-out;
+  // animation-iteration-count: 1;
+}
+
+.portfolio-panel:nth-child(2) {
+  animation-delay: .12s;
+}
+.portfolio-panel:nth-child(3) {
+  animation-delay: .24s;
+}
+.portfolio-panel:nth-child(4) {
+  animation-delay: .36s;
+}
+.portfolio-panel:nth-child(5) {
+  animation-delay: .48s;
+}
+.portfolio-panel:nth-child(6) {
+  animation-delay: .60s;
+}
+.portfolio-panel:nth-child(7) {
+  animation-delay: .72s;
+}
+.portfolio-panel:nth-child(8) {
+  animation-delay: .84s;
+}
+.portfolio-panel:nth-child(9) {
+  animation-delay: .98s;
+}
+.portfolio-panel:nth-child(10) {
+  animation-delay: 1.1s;
+}
+
+.portfolio-panel::after {
+  content: '';
+  top: 0; left: 0;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border-radius: 4px;
+  box-shadow: -2px 2px 12px 0 rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.portfolio-panel:hover::after {
+  opacity: 1;
+}
+.portfolio-panel--image {
+  border-radius: 0 0 4px 4px;
+  min-height: 161px;
+}
+.portfolio-panel--image img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.portfolio-panel:hover .portfolio-panel--image img {
+}
+.portfolio-panel--header {
+  background-color: #333;
+  border-radius: 4px 4px 0 0;
+  padding: 4px 8px 3px;
+  text-align: left;
+  h3 {
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: auto;
+    font-size: 17px;
+    vertical-align: top;
+    margin: 8px 0 0 4px;
+    padding: 0;
+  }
+}
+.portfolio-panel--info {
+  margin-left: 4px;
+  p {
+    font-weight: 400;
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+}
+
+.portfolio-panel--image {
+  margin: 0 auto;
+  text-align: center;
+  img {
+    //border-bottom: solid 5px #2a2a2a;
+    border-radius: 0 0 4px 4px;
+  }
+}
+
+.topbar {
+  opacity: 0;
+
+}
+.topbar__resume {
+//  height: 39px;
+  padding: 6px 10px 12px;
+}
+
+.topbar--sec1, .topbar--sec2 {
+  height: 24px;
+  margin: 4px;
+}
+
+.topbar--resumetextlist, .topbar--resumebuttonlist {
+  font-size: 15px;
+  margin: 0;
+  padding:0;
+  color: #fff;
+  li {
+    display: inline-block;
+  }
+}
+.topbar--resumetextlist {
+  li {
+    margin-right: 8px;
+  }
+  a {
+    color: #fff;
+    text-decoration: underline;
+  }
+}
+.topbar--resumebuttonlist {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  li {
+    height: 28px;
+  }
+}
+.topbar--imgbutton {
+  margin-right: 3px;
+}
+.topbar--txtbutton {
+  a {
+    margin: 0 0 0 10px;
+    font-size: 13px;
+    background-image: linear-gradient(0deg, #EAEAEA 0%, #FFFFFF 97%);
+    box-shadow: -1px 1px 2px 1px rgba(0,0,0,0.07);
+    border-radius: 6px;
+    padding: 4px 10px;
+    color: #222;
+    background-color: #fff;
+  }
+}
+
+.resume-sec1 {
+  display: block;
+  max-width: 630px;
+  margin-top: 22px;
+  border-bottom: solid 4px #333;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation-name: fadein;
+  animation-duration: .5s;
+  animation-delay: .25s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+.resume-sec2 {
+  max-width: 630px;
+  opacity: 0;
+  animation-name: fadein;
+  animation-duration: .5s;
+  animation-delay: .36s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+.resume-item {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4em;
+  margin-bottom: 40px;
+}
+.resume-subhead {
+  font-size: 18px;
+  padding-bottom: 4px;
+  color: #333;
+  font-weight: 500;
+  border-bottom: solid 1px #999;
+  margin: 18px 0;
+}
+.resume-item--eyebrow {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #555;
+  letter-spacing: 1px;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+.resume-item--title {
+  font-size: 22px;
+  color: #222;
+  line-height: 1.1em;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+.resume-item--subhead {
+  font-size: 15px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 18px;
+}
+.resume-subhead2 {
+
+}
+
+.resume-item--list {
+    padding-bottom: 1px;
+    margin-bottom: 8px;
+    li {
+      padding: 0 0 0 2.6em;
+    //  font-weight: 500;
+      margin-bottom: .9em;
+      background: url(../../images/fingah@2x.png) no-repeat 0px 4px;
+      background-size: 25px 12px;
+    }
+}
+
+.resume-quote {
+//  max-width: 630px;
+  background-image: url("../../images/quote-59-47@2x.png");
+  background-repeat: no-repeat;
+  background-size: 59px 47px;
+  background-position: top left;
+  background-color: #D6E5E6;
+  padding: 1.7rem 2rem 1rem;
+  border-radius: 4px;
+  margin: 10px 0 22px;
+}
+
+.resume-quote--body {
+  margin-bottom: 10px;
+  color: #222;
+  font-size: 15px;
+  line-height: 1.35em;
+}
+.resume-quote--person {
+  color: #161616;
+  font-size: 15px;
+  margin-bottom: 1px;
+  font-weight: bold;
+}
+.resume-quote--description {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.35em;
+}
+
+.resume-section {
+    font-size: 15px;
+    margin: 36px 0;
+    color: #555;
+    line-height: 1.4em;
+}
+.resume-section--header {
+  font-size: 18px;
+  color: #333;
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+.resume-section--linkitem {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+@media screen and (min-width: 365px) {
+  // a little tweak for iphone 6-sized displays
+  .container {
+    margin: 1.5rem;
+  }
+  .home-letter {
+    margin: 2rem;
+//    font-size: 17px;
+  }
+
+  .header--name {
+    float: left;
+    h1 {
+
+      span { }
+    }
+    h2 {
+    }
+  }
+  .header--nav {
+    float: right;
+    padding-top: 1px;
+  }
+  .main-nav--item {
+    margin: 0 0 0 5px;
+  }
+
+}

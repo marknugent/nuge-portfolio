@@ -1,0 +1,42 @@
+@keyframes fadeinscale {
+  0% {
+    opacity: 0;
+    transform: scale(.95,.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes blowup {
+  0% {
+    transform: scale(1, 1)
+  }
+  100% {
+    transform: scale(1.1, 1.1)
+  }
+}
+@keyframes fadeinscaleport {
+  0% {
+    opacity: 0;
+    transform: scale(.97,.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadein-delay1 {
+
+}
+@keyframes fadein-zoom {
+}

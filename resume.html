@@ -1,313 +1,270 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html lang=en-us>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mark Nugent &mdash; UX and interaction design</title>
-    <link rel="author" href="humans.txt" />
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700,300,400|Roboto:500,400italic,300,300italic,400' rel='stylesheet' type='text/css'>
-    <!--link rel="stylesheet" href="css/animate.css" /-->
-    <link rel="stylesheet" href="css/app.css" />
-    <link rel="stylesheet" title="light" href="css/light.css" />
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="js/velocity.min.js"></script>
-    <script src="js/velocity.ui.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-    <script>
-      if ($.cookie("light_theme")) {
-      var light_theme = $.cookie("light_theme");
-    console.log('light_theme is ' + light_theme);
-      if (light_theme === 'yes') {
-        $("link[title='light']")[0].disabled = false;
-      } else {
-        $("link[title='light']")[0].disabled = true;
-        $.cookie("light_theme", 'no')
-      }
-    }
-    </script>
-    <!--link rel="stylesheet" href="css/main.css" / -->
-    <!--script src="//use.typekit.net/zei5xwb.js"></script-->
-    <!--script>try{Typekit.load();}catch(e){}</script-->
-    <script src="bower_components/modernizr/modernizr.js"></script>
-    <script src="js/picturefill.min.js"></script>
+    <meta charset=utf-8>
+    <title>Mark Nugent, Product Designer | Résumé</title>
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
+    <link href="../styles/css/main.css" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="main-container">
-      <div class="row collapse header">
-        <div class="columns hdr-box">
-          <a href="/">
-            <h1 class="hdr-name">Mark Nugent</h1>
-          </a>
-          
-          <ul class="top-nav">
-            <li><a href="portfolio.html" class="nav-button inactive">portfolio</a></li><li class="active">
-              <a href="resume.html" class="nav-button active">r&eacute;sum&eacute;</a></li>
+    <div class="container">
+      <!--div class="dev dev__small">Small/Default</div>
+      <div class="dev dev__medsmall">MedSmall</div>
+      <div class="dev dev__medium">Medium</div>
+      <div class="dev dev__medlarge">MedLarge</div>
+      <div class="dev dev__large">Large</div-->
+      <div class="header">
+        <div class="header--name">
+          <a href="/"><h1>Mark Nugent<span>,</span></h1></a> <h2>Product Designer</h2>
+        </div><!-- .header--name -->
+        <div class="header--nav">
+          <ul class="main-nav">
+            <li class="main-nav--item">
+              <a href="portfolio.html">
+                Portfolio
+              </a>
+            </li>
+            <li class="main-nav--item main-nav--item__active">
+              <a href="resume.html">
+                R&eacute;sum&eacute;
+              </a>
+            </li>
           </ul>
-        </div>
-      </div><!-- .row .header -->
-      <div class="row">
-        <!--div class="utility-bar animated-fast fadeInDown"-->
-        <div class="utility-bar">
-          <div class="ub-title">
-            r&eacute;sum&eacute;
-          </div>
-          <a class="img-replace img-but-linkedin" href="http://www.linkedin.com/in/nugentmark">
-            LinkedIn
-            <!--img src="images/but-linkedin@2x.png" height="20" width="20"-->
-          </a>
+        </div><!-- .header--nav -->
+      </div><!-- .header -->
 
-          <a class="img-replace img-but-twitter" href="http://twitter.com/mark_nugent">
-            Twitter
-            <!--img src="images/but-twitter@2x.png" height="20" width="21"-->
-          </a>
-          <a class="img-replace img-but-tumblr" href="http://marknugent.tumblr.com">
-            Tumblr
-            <!--img src="images/but-tumblr@2x.png" height="20" width="20"-->
-          </a>
-          <div class="ub-textlinks">
+      <div class="main main__resume">
+        <div class="topbar topbar__resume">
+            <div class="topbar--sec1">
+              <ul class="topbar--resumetextlist">
+                <li><a href="mailto:mark@nuge.co">mark@nuge.co</a></li>
+                <li>cell: 734-218-5869</li>
+              </ul>
+            </div>
+            <div class="topbar--sec2">
+              <ul class="topbar--resumebuttonlist">
+                <li class="topbar--imgbutton"><a href="http://twitter.com/mark_nugent"><img src="images/resbut-twitter@2x.png" alt="Twitter, folks." width="28" height="28"></a></li>
+                <li class="topbar--imgbutton"><a href="https://www.linkedin.com/in/nugentmark/" ><img src="images/resbut-li@2x.png" alt="LinkedIn, man." width="29" height="28"></a></li>
+                <li class="topbar--imgbutton"><a href="http://marknugent.tumblr.com"><img src="images/resbut-tumblr@2x.png" alt="Tumblr. Is it still a thing?" width="28" height="28"></a></li>
+                <li class="topbar--txtbutton"><a href="Mark-Nugent-Designer-Resume.pdf">R&eacute;sum&eacute; PDF</a></li>
+              </ul>
+            </div>
 
-            <a href="mailto:mark@nuge.co" title="Send me a message (mailto:)">mark@nuge.co</a>
-             &bull; 
-            <span>734-218-5869</span>
-          </div><!-- .ub-textlinks -->
-        </div><!-- .utility-bar -->
-      </div><!-- .row  -->
-      <div class="row">
-        <div class="theme-switcher">
-            <p><span></span> (<a id="switch_link" href="javascript: void();">switch</a>)</p>
+        </div><!-- .portfolio-topbar -->
+        <div class="resume-sec1">
+          <h3 class="resume-subhead">Experience</h3>
+          <div class="resume-item">
+            <h5 class="resume-item--eyebrow">November 2015 &ndash; April 2017</h5>
+            <h4 class="resume-item--title">Product Designer</h4>
+            <h5 class="resume-item--subhead">Seneca Systems</h5>
+            <!--ul class="resume-item--list">
+              <li>Conducted user research; created wireframes, task flows, and visual design for Romulus, a web-based CRM for local governments</li>
+              <li>Worked closely with developers, customer experience lead, and salespersons in an Agile environment</li>
+              <li>Became product manager in late 2016; managed project backlog; led planning meetings and retrospectives </li>
+              <li>Wrote help documentation &amp; website copy</li>
+
+            </ul-->
+            <p>
+              At Seneca Systems, a company backed by Y Combinator, Initialized Capital, and Cowboy Ventures, I was sole designer for Romulus, a CRM for local governments; conducting user research and creating wireframes, task flows, and visual design. Romulus has been adopted by city governments nationwide, including Chicago, Houston, Minneapolis, Oakland, Miami, and Boston.
+            </p>
+            <p>
+              I collaborated with our CEO, CTO, salespersons, and customer-experience staff to set the product's direction. Working closely with engineers in an Agile environment, I managed our project backlog and led planning meetings and sprint retrospectives.
+            </p>
+            <p>
+            I wrote UI copy and help documentation as well as promotional copy for our public website.   </p>
+          </div><!-- .resume-item -->
+
+          <div class="resume-item">
+            <h5 class="resume-item--eyebrow">November 2013 &ndash; April 2015</h5>
+            <h4 class="resume-item--title">UX Designer/Developer</h4>
+            <h5 class="resume-item--subhead">i360 LLC</h5>
+            <!--ul class="resume-item--list">
+              <li>UX and visual design for iOS and Android native mobile applications
+              </li>
+
+              <li>
+                Design of features on a Web portal incorporating various complex functions
+              </li>
+              <li>
+                HTML/CSS re-writing and refactoring for a suite of complex Web applications
+              </li>
+            </ul-->
+            <p>
+                At i360, a data analysis company for political analysis, I served as a UX designer, visual designer, and front-end dev in an Agile environment.
+            </p>
+            <p>I designed iOS and Android user interfaces for two mobile applications: i360 Walk, which supported door-to-door canvassers, and i360 Calls, which was part of a phone-canvassing system. Both apps were employed by thousands of volunteers and garnered praise for from i360’s clients for their ease of use. I additionally designed and coded HTML/CSS for a web-based, desktop version of i360 Calls.
+            </p>
+            <p>
+              I also designed and refined features on a Web-based portal that incorporated various complex functions for gathering and analyzing political data. I led an initiative to re-write the HTML/CSS for this web application based on the Object-Oriented CSS approach.
+            </p>
+          </div><!-- .resume-item -->
+
+
+        <div class="resume-item">
+          <h5 class="resume-item--eyebrow">May 2011 &ndash; September 2013</h5>
+          <h4 class="resume-item--title">Art Director &amp; Senior Editor</h4>
+          <h5 class="resume-item--subhead">American Ideas Institute / <em>TAC</em></h5>
+          <!--ul class="resume-item--list">
+              <li>Design, project management, development, and maintenance of a highly-trafficed magazine website
+              </li>
+              <li>Art direction and layout of print magazine
+              </li>
+              <li>Editing and writing</li>
+
+          </ul-->
+          <p>
+              At <em>TAC</em>, in addition to editorial tasks, I was responsible for the design and art direction of the print magazine and website.
+          </p><p>
+              I also adapted <em>TAC</em> to the Kindle and produced a Kindle edition for each issue, and designed and produced the template for a weekly e-mail newsletter.
+           </p><p>
+              I led a redesign of <em>TAC</em>’s website, creating wireframes and design comps, producing HTML/CSS, and working with developers to integrate the design with a Wordpress-based CMS. Since the redesign, traffic increased threefold, with one month bring more than two million page views.
+          </p>
+        </div><!-- .resume-item -->
+        <div class="resume-item">
+          <h5 class="resume-item--eyebrow">July 2009 &ndash; May 2011</h5>
+          <h4 class="resume-item--title">Associate Editor</h4>
+          <h5 class="resume-item--subhead">The American Interest</h5>
+          <!--ul class="resume-item--list">
+              <li>Art direction of print magazine</li>
+              <li>Redesigned interior pages of print magazine</li>
+              <li>Web design and template production</li>
+              <li>Editing and writing</li>
+          </ul-->
+          <p>My art direction duties for <em>The American Interest</em> included magazine layout, designing spreads, creating illustration concepts, and commissioning illustrations from artists.</p>
+          <p>I also created wireframes and design comps for a redesign of the AI's website. From this design I produced Wordpress templates for the <em>AI</em>'s blogs, including Walter Russell Mead's popular “Via Meadia” blog.</p>
+        </div><!-- .resume-item -->
+        <div class="resume-item">
+          <h5 class="resume-item--eyebrow">January 2008 &ndash; April 2009</h5>
+          <h4 class="resume-item--title">Web Designer</h4>
+          <h5 class="resume-item--subhead">Hanley Wood</h5>
+          <!--ul class="resume-item--list">
+              <li>Website design and production</li>
+          </ul-->
+          <p>Hanley Wood is a media and e-comerce company focused on its family of trade publications for the building industry. At Hanley-Wood much of my work consisted of producing HTML and CSS during a transition of their online publications to the Tridion CMS. I also did design and coding work on their network of sites that sell house plans online.</p>
+        </div><!-- .resume-item -->
+        <div class="resume-item">
+          <h5 class="resume-item--eyebrow">May 2000 &ndash; August 2004</h5>
+          <h4 class="resume-item--title">Senior Designer</h4>
+          <h5 class="resume-item--subhead">Fleishman-Hillard</h5>
+          <!--ul class="resume-item--list">
+              <li>Design and production of websites for Fortune 500 clients</li>
+              <li>Flash animation and programming</li>
+          </ul-->
+          <p>At Fleishman-Hillard, a top public relations firm, I designed, coded, and produced websites for corporate clients. I also was involved in many Flash animation projects, including ads, CD-ROM multimedia projects, and internal messaging.</p>
+        </div><!-- .resume-item -->
+      </div><!-- .resume-sec1 -->
+      <div class="resume-sec2">
+        <div class="resume-quote">
+          <p class="resume-quote--body">Mark did an outstanding job as our UX, UI, do everything guy.
+             <strong>He led the design of our mobile applications which are considered to be among the best in class.</strong> Mark is extremely adaptable to changing circumstances. He always brings a great attitude and is extremely dependable. It was a pleasure working with him.
+           </p>
+           <p class="resume-quote--person">
+             Andrew Clark
+           </p>
+           <p class="resume-quote--description">
+             Executive Director, GenOpp; <br> Project Manager at i360<br>
+              (LinkedIn recommendation)
+            </p>
+        </div><!-- . resume-quote -->
+        <div class="resume-quote">
+          <p class="resume-quote--body">Mark Nugent was hired to work for us primarily as an editor who was also responsible for print layout. But we soon discovered that he had an excellent eye for graphic design and a passion for improving user interfaces. <strong>Mark completely reconceived and modernized our website during his tenure,</strong> introducing visual elements that are still active on the site today. A brilliant and ambitious hire, it was a pleasure working with him.
+           </p>
+           <p class="resume-quote--person">
+             Damir Marusic
+           </p>
+           <p class="resume-quote--description">
+             Publisher, <em>The American Interest</em><br>
+              (Hired.com recommendaion)
+            </p>
         </div>
+
+        <div class="resume-section">
+          <h3 class="resume-section--header">
+            Skills &amp; Software
+          </h3>
+          <p class="resume-section--skills-list"><strong>Software:</strong> Sketch, Illustrator, Photoshop, Balsamiq, InDesign, InVision, Adobe Animate, OmniGraffle, Xcode, Visual Studio, Atom
+          </p>
+          <p class="resume-section--skills-list">
+            <strong>Skills:</strong> Prototyping, wireframing, visual design, user research. HTML/CSS, Javascript/jQuery, LESS, Sass, BEM. Writing, copy-editing, proofreading.
+          </p>
+        </div>
+        <div class="resume-section">
+          <h3 class="resume-section--header">
+            Writing
+          </h3>
+          <p>
+              I've done a bit of writing, some of it relevant to design and technology. </p>
+
+          <p></p>
+          <p><a class="resume-section--linkitem" href="http://marknugent.tumblr.com/">"Markup," my design blog</a></p>
+          <!--p>
+            <strong><a href="http://marknugent.tumblr.com/post/98203319356/linkedins-evil-ux" class="resume-sectionDASHDASHlinkitem">LinkedIn's Evil UX</a></strong>
+            <br>
+            This post garnered a link from Kenny Chen's <a href="http://uxdesignweekly.com/issue-2/">UX Design Weekly</a>
+          </p-->
+          <p>
+             <strong><a href="http://marknugent.tumblr.com/post/47212935858/a-guide-tutorial-to-the-frameless-grid-how-to" class="resume-section--linkitem">A Guide to the Frameless Grid</a></strong><br>
+             The go-to guide to the <a href="http://www.framelessgrid.com">Frameless grid system</a>, Joni Korpi's adaptive design framework
+          </p>
+          <p>
+            <strong><a href="http://www.theamericanconservative.com/articles/the-fight-for-food-rights/" class="resume-section--linkitem">The Fight for Food Rights</a></strong>
+            <br>
+            Among the agricultural anarchists and raw-milk revolutionaries
+          </p>
+          <p>
+              <a class="resume-section--linkitem" href="http://www.the-american-interest.com/2010/08/20/you-want-a-statin-with-that/">You Want a Statin With That?</a>
+              <br>
+              A contribution to the <em>American Interest Online</em>
+          </p>
+      </div><!-- resume-section -->
+      <div class="resume-section">
+        <h3 class="resume-section--header">
+          Education
+        </h3>
+        <p class="resume-section--skills-list"><strong>University of Missouri</strong>
+          <br>BA, Fine Arts (concentration in graphic design)
+        </p>
+        <p class="resume-section--skills-list">
+          <strong>Ave Maria School of Law</strong>
+          <br> JD
+        </p>
       </div>
-      <div class="pnl-set resume">
-        <div class="row collapse">
-          <div class="large-8 medium-12 columns resume-main-col"><!-- main left-column resume section -->
-            <div class="pnl">
-              <div class="pnl-head pnl-head-resume">
-                <h3 class="pnl-title">Summary</h3>
-              </div><!-- .pnl-head -->
-              <div class="pnl-body">
-                <p>
-                    I&rsquo;m a UI/UX designer with strong front-end development skills. In addition to having designed and coded many websites, I have served as a UX and design lead for native iOS and Android apps as well as desktop web-based applications. 
-                </p>
-                <p>
-                    I'm passionate about usability and helping to make great products. I am eager to put my experience to work employing UX best practices in support of a forward-thinking organization. 
-                </p>
-              </div><!-- .pnl-body -->
-            </div><!-- .pnl (Summary) -->
-            <div class="pnl">
-              <div class="pnl-head pnl-head-resume">
-                <h3 class="pnl-title">Experience</h3>
-              </div><!-- .pnl-head -->
-              <div class="pnl-body">
-                  <div class="resume-item">
-                    <h5 class="eyebrow">November 2013 &ndash; April 2015</h5>
-                    <h4 class="resume-title">UX Designer/Developer</h4>
-                    <h5 class="subhed">i360 LLC</h5>
-                    <ul class="pnl-list">
-                      <li>UX and visual design for iOS and Android native mobile applications
-                      </li>
-                      <li>
-                          UX, visual design, and HTML/CSS 
-                      </li>
-                      <li>
-                        Design of features on a Web portal incorporating various complex functions
-                      </li>
-                      <li>
-                        HTML/CSS re-writing and refactoring for a suite of complex Web applications
-                      </li>
-                    </ul>
-                    <p>
-                        At i360, a data analysis company for political analysis, I served as a UX designer, visual designer, and front-end dev in an Agile environment.
-                    </p>
-                    <p>I designed iOS and Android user interfaces for two mobile applications: i360 Walk, which supported door-to-door canvassers, and i360 Calls, which was part of a phone-canvassing system. Both apps were employed by thousands of volunteers and garnered praise for from i360’s clients for their ease of use. I additionally designed and coded HTML/CSS for a web-based, desktop version of i360 Calls.
-                    </p>
-                    <p>
-                      I also designed and refined features on a Web-based portal that incorporated various complex functions for gathering and analyzing political data. I led an initiative to re-write the HTML/CSS for this web application based on the Object-Oriented CSS approach.
-                    </p>
-                  </div><!-- .resume-item -->
-                  <div class="resume-item">
-                    <h5 class="eyebrow">May 2011 &ndash; September 2013</h5>
-                    <h4 class="resume-title">Art Director & Senior Editor</h4>
-                    <h5 class="subhed">American Ideas Institute / <em>TAC</em></h5>
-                    <ul class="pnl-list">
-                        <li>Design, project management, development, and maintenance of theamericanconservative.com
-                          </li>
-                          <li>Art direction and layout of print magazine
-                          </li>
-                        
-                    </ul>
-                    <p>
-                        At <em>TAC</em>, I was responsible for the design and art direction of the print magazine and website. 
-                    </p><p>
-                        I also adapted <em>TAC</em> to the Kindle and produced a Kindle edition for each issue, and designed and produced the template for a weekly e-mail newsletter.
-                     </p><p>
-                        I led a redesign of <em>TAC</em>’s website, creating wireframes and design comps, producing HTML/CSS, and working with developers to integrate the design with a Wordpress-based CMS. Since the redesign, traffic increased threefold, with one month bring more than two million page views.
-                    </p>                  
-                  </div><!-- .resume-item -->
-                  <div class="resume-item">
-                    <h5 class="eyebrow">July 2009 &ndash; May 2011</h5>
-                    <h4 class="resume-title">Associate Editor</h4>
-                    <h5 class="subhed">The American Interest</h5>
-                    <ul class="pnl-list">
-                        <li>Art direction of print magazine</li>
-                        <li>Redesigned interior pages of print magazine</li>
-                        <li>Web design and template production</li>
-                    </ul>
-                    <p>My art direction duties for <em>The American Interest</em> included magazine layout, designing spreads, creating illustration concepts, and commissioning illustrations from artists.</p>
-                    <p>I also created wireframes and design comps for a redesign of the AI's website. From this design I produced Wordpress templates for the <em>AI</em>'s blogs, including Walter Russell Mead's popular “Via Meadia” blog.</p>
-                  </div><!-- .resume-item -->
-                  <div class="resume-item">
-                    <h5 class="eyebrow">January 2008 &ndash; April 2009</h5>
-                    <h4 class="resume-title">Web Designer</h4>
-                    <h5 class="subhed">Hanley Wood</h5>
-                    <ul class="pnl-list">
-                        <li>Website design and production</li>
-                    </ul>
-                    <p>Hanley Wood is a media and e-comerce company focused on its family of trade publications for the building industry. At Hanley-Wood much of my work consisted of producing HTML and CSS during a transition of their online publications to the Tridion CMS. I also did design and coding work on their network of sites that sell house plans online.</p>
-                  </div><!-- .resume-item -->
-                  <div class="resume-item">
-                    <h5 class="eyebrow">May 2000 &ndash; August 2004</h5>
-                    <h4 class="resume-title">Senior Designer</h4>
-                    <h5 class="subhed">Fleishman-Hillard</h5>
-                    <ul class="pnl-list">
-                        <li>Design and production of websites for Fortune 500 clients</li>
-                        <li>Flash animation and programming</li>
-                    </ul>
-                    <p>At Fleishman-Hillard, a top public relations firm, I designed, coded, and produced websites for corporate clients. I also was involved in many Flash animation projects, including ads, CD-ROM multimedia projects, and internal messaging.</p>
-                  </div><!-- .resume-item -->
 
-                  <!--div class="resume-item">
-                    <<h5 class="eyebrow">May 2011 &ndash; September 2013</h5>
-                    <h4 class="resume-title">Title not in title case</h4>
-                    <h5 class="subhed">EMPLOYER</h5>
-                    <ul class="pnl-list">
-                        <li>bullet item</li>
-                        <li>bullet item</li>
-                        <li>bullet item</li>
-                    </ul>
-                    <p>paragraph</p>
-                    <p>paragraph</p>
-                    <p>paragraph</p>
-                  </div><-- .resume-item -->
-
-                </div><!-- .pnl-body -->
-              </div><!-- .pnl (Experience) -->
-
-            </div><!-- .large-5 ... first column -->
-
-            <div class="large-4 small-12 columns"><!-- sidebar -->
-              <div class="pnl download-pnl show-for-large-only">
-                <a class="body-button" href="resume-2015.pdf">View PDF Version</a>
-              </div>
-              <div class="pnl sidebar-pnl">
-                <div class="pnl-head pnl-head-resume">
-                  <h3 class="pnl-title">Skills & Software</h3>
-                </div><!-- .pnl-head -->
-                <div class="pnl-body">
-                  <p>
-                      <strong>Software:</strong> Sketch, Illustrator, Photoshop, Balsamiq, InDesign, Adobe Edge Animate, OmniGraffle, Xcode, Visual Studio
-                  </p>
-                  <p>
-                      <strong>Skills:</strong> HTML/CSS, Javascript/jQuery, LESS, Sass, wireframing. Writing, copy-editing, proofreading.
-                  </p>
-                </div><!-- .pnl-body -->
-              </div><!-- .pnl sidebar-pnl (Skills) -->
+    </div><!-- resume-sec2 -->
 
 
-              <div class="pnl sidebar-pnl">
-                <div class="pnl-head pnl-head-resume">
-                  <h3 class="pnl-title">Testimonials</h3>
-                </div><!-- .pnl-head -->
-                <div class="pnl-body testimonials">
-                  <p>
-                      Mark did an outstanding job as our UX, UI, do everything guy. He led the design of our mobile applications which are considered to be among the best in class. Mark is extremely adaptable to changing circumstances. He always brings a great attitude and is extremely dependable. It was a pleasure working with him.</p>
-                  <p style="margin-top: -14px;"><strong>Andrew Clark</strong> <br />Executive Director, GenOpp, formerly of i360<br />
-                    (LinkedIn recommendation)</p>
-                  <p>
-                      Mark Nugent was hired to work for us primarily as an editor who was also responsible for print layout. But we soon discovered that he had an excellent eye for graphic design and a passion for improving user interfaces. Mark completely reconceived and modernized our website during his tenure, introducing visual elements that are still active on the site today. A brilliant and ambitious hire, it was a pleasure working with him.</p>
-                  <p style="margin-top: -14px;"><strong>Damir Marusic</strong><br />Publisher, <em>The American Interest</em><br />
-                    (Hired.com recommendaion)</p>
-                </div><!-- .pnl-body -->
-              </div><!-- .pnl sidebar-pnl (Testimonials) -->
+  </div><!-- main div whatever -->
 
 
-
-              <div class="pnl sidebar-pnl">
-                <div class="pnl-head pnl-head-resume">
-                  <h3 class="pnl-title">Writing</h3>
-                </div><!-- .pnl-head -->
-                <div class="pnl-body">
-                  <p>
-                      I've done a bit of writing, some of it relevant to design and technology. </p>
-
-                  </p>
-                  <p><strong><a href="http://marknugent.tumblr.com/">"Markup," my design blog</a></strong></p>
-                  <p>
-                    <strong><a href="http://marknugent.tumblr.com/post/98203319356/linkedins-evil-ux" class="link-item">LinkedIn's Evil UX</a></strong>
-                    <br>
-                    This post garnered a link from Kenny Chen's <a href="http://uxdesignweekly.com/issue-2/">UX Design Weekly</a>
-                  </p>
-                  <p>
-                     <strong><a href="http://marknugent.tumblr.com/post/47212935858/a-guide-tutorial-to-the-frameless-grid-how-to" class="link-item">A Guide to the Frameless Grid</a></strong><br />
-                     The go-to guide to the <a href="http://www.framelessgrid.com">Frameless grid system</a>, Joni Korpi's adaptive design framework
-                  </p>
-                  <p>
-                    <strong><a href="http://www.theamericanconservative.com/articles/the-fight-for-food-rights/" class="link-item">The Fight for Food Rights</a></strong>
-                    <br>
-                    Among the agricultural anarchists and raw-milk revolutionaries
-                  </p>
-                  <p>
-                      <a class="link-item" href="http://www.the-american-interest.com/2010/08/20/you-want-a-statin-with-that/">You Want a Statin With That?</a>
-                      <br>
-                      A contribution to the <em>American Interest Online</em>
-                </div><!-- .pnl-body -->
-              </div><!-- .pnl sidebar-pnl (Writing) -->
-
-
-
-              <div class="pnl sidebar-pnl">
-                <div class="pnl-head pnl-head-resume">
-                  <h3 class="pnl-title">Education</h3>
-                </div><!-- .pnl-head -->
-                <div class="pnl-body">
-                  <h5 class="eyebrow eb-small">May 2007</h5>
-                  <h4 class="resume-title rt-small">Ave Maria School of Law</h4>
-                  <h5 class="subhed sh-small">JD, May 2007</h5>
-
-                  <h5 class="eyebrow eb-small">May 1999</h5>
-                  <h4 class="resume-title rt-small">University of Missouri &ndash; Columbia</h4>
-                  <h5 class="subhed sh-small">BA in Graphic Design</h5>
-                </div><!-- .pnl-body -->
-              </div><!-- .pnl  (Education) -->
-            </div><!-- .columns sidebar -->
-          </div><!-- .row .collapse -- main set -->
-        </div><!-- .pnl-set -->
-        <div class="row">
-          <div class="column footer">
-            <a href="mailto:mark@nuge.co">mark@nuge.co</a> &bull; (734) 218-5869
-            <br />
-            Made with <a href="http://foundation.zurb.com/">Foundation</a>, <a href="http://julian.com/research/velocity/">Velocity.js</a>, and <a href="https://jquery.com/">jQuery</a>
-          </div>
+      <div class="footer footer__internal">
+        <div class="footer--first">
+            <a href="/">Home Page</a> &bull;
+            <a href="portfolio.html">Portfolio</a> &bull;
+            <a href="resume.html">R&eacute;sum&eacute;</a>
         </div>
-      </div><!-- .main-container -->
-          
+        <div class="footer--middle">
+          <a href="https://twitter.com/mark_nugent"><img alt="Mah Twittah" class="footer--icon" src="images/grey-icon-twitter-27-27@2x.png" width="27" height="27"></a>
+          <a href="https://www.linkedin.com/in/nugentmark/"><img alt="Mah LinkedIn" class="footer--icon" src="images/grey-icon-linkedin-27-27@2x.png" width="27" height="27"></a>
+          <a href="http://marknugent.tumblr.com/"><img alt="Mah Tumblah" class="footer--icon" src="images/grey-icon-tumblr-27-27@2x.png" width="27" height="27"></a>
+        </div>
+        <div class="footer--last">
+          <a href="mailto:mark@nuge.co">mark@nuge.co</a> &bull; cell 734- 218-5869
+        </div>
+
+
+      </div><!-- .footer -->
+      <!--  -->
       <a href="#0" class="cd-top">Top</a>
-      
-    
-    <!-- back-to-top linkbutton from http://codyhouse.co/gem/back-to-top/ -->
+  <!-- back-to-top linkbutton from http://codyhouse.co/gem/back-to-top/ -->
+    </div><!-- .container -->
+    <script src="js/port-min.js"></script>
 
-<!-- picture element demo.
+  </body>
 
-  <picture>
-    <source media=”(min-width: 45em)” srcset=”original.jpg, original-hd.jpg 2x”>
-    <source media=”(min-width: 18em)” srcset=”cropped-medium.jpg, cropped-medium-hd.jpg 2x”>
-    <source srcset=”cropped-small.jpg, cropped-small-hd.jpg 2x”>
-    <img src=”cropped-small.jpg” alt=”The President shaking hands with Robert Anton Wilson” >
-</picture>
-
--->
-   
-    <script src="bower_components/foundation/js/foundation.min.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/port.js"></script>
   </body>
 </html>
