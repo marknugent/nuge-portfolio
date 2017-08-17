@@ -1,6 +1,6 @@
 # Hello
 
-This is the code for my personal website. It's nothing fancy.
+This is the code for my personal website. 
 
 I used modernizr, lightbox2, bourbon/bitters, jquery, and Claudia Romano's [back-to-top](https://codyhouse.co/gem/back-to-top/) thingy.
 
