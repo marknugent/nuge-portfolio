@@ -7,12 +7,17 @@
     display: none;
   }
   .dev__medium {
-//    display: block;
+    display: block;
   }
 
+  body {
+    background-color: #f1f1f1;
+  }
 
   .container {
-    margin: 2rem 3rem;
+    margin: 1rem 2rem;
+    padding: 1.5rem 2rem;
+    background-color: #fff;
   }
 
   .header--name {
@@ -47,16 +52,24 @@
   .main-nav--item__active {
     padding-bottom: 7px;
   }
+  .main-nav--item__active:before, .main-nav--item:hover:before{
+
+    top: -26px;
+    left: 27%;
+    border-color: $background-color transparent transparent transparent;
+
+    border-width: 19px 25px 0 25px;
+
+  }
   .topbar__portfolio-detail {
-    height: 40px;
+    height: 27px;
   }
-  .topbar__resume {
-    padding-top: 5px;
-  }
-  .topbar--sec2 {
-    margin: 3px;
-  }
-  .topbar--resumebuttonlist {
+
+  .topbar--resumetextlist li {
+
+      margin-right: 8px;
+      font-size: 13px;
+
   }
   .topbar--txtbutton {
     position: relative;
@@ -70,12 +83,10 @@
 
   }
   .topbar--button {
-    top: -4px;
-    left: -2px;
+    top:1px;
     a {
-      background-color: #fff;
-      font-size: 19px;
-      padding: 4px 12px 6px 8px;
+      font-size: 15px;
+      padding: 4px 10px 5px 6px;
     }
   }
 

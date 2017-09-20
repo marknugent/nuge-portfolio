@@ -9,7 +9,7 @@
     display: none;
   }
   .dev__medlarge {
-  //  display: block;
+    display: block;
   }
 
     .container {
@@ -36,7 +36,7 @@
     .home-letter{
       margin: 2.5rem auto 1rem;
       padding: 0 3.4rem 0 3.8rem;
-      font-size: 16px;
+      font-size: 15px;
       position: relative;
     }
     .home-letter--hellotext {
@@ -53,8 +53,8 @@
 
     }
     .header {
-      border-bottom-width: 5px;
-      margin-bottom: 16px;
+    //  border-bottom-width: 5px;
+      margin-bottom: 4px;
     }
 
     .header--name {
@@ -62,19 +62,19 @@
       padding-bottom: 4px;
       margin-bottom: 0;
       h1 {
-        font-size: 34px;
-        line-height: 34px;
+        font-size: 30px;
+        line-height: 30px;
         span {
           display: inline-block;
-          font-size: 34px;
+          font-size: 30px;
           margin: 0 6px 0 2px;
         }
       }
       h2 {
         display: inline-block;
         letter-spacing: -.5px;
-        line-height: 32px;
-        font-size: 32px;
+        line-height: 30px;
+        font-size: 30px;
       }
     }
     .header--nav {
@@ -83,31 +83,37 @@
       float: right;
     }
     .main-nav--item {
-      font-size: 32px;
-      line-height: 35px;
-      margin-left: 12px;
+      font-size: 30px;
+      line-height: 30px;
+      margin-left: 8px;
       margin-right: 0;
     }
     .main-nav--item__active {
       padding-bottom: 7px;
       border-bottom-width: 4px;
     }
+    .main-nav--item__active:before, .main-nav--item:hover:before {
 
+      top: -26px;
+      left: 30%;
+
+      border-width: 16px 25px 0 25px;
+
+    }
     .topbar__portfolio-detail {
       display: block;
-      margin-bottom: 12px;
-      height: 33px;
+      margin-bottom: 8px;
+      height: 28px;
     }
     .topbar--button {
+      top: 2px;
       a {
-        border: solid 2px #fff;
-        background-color: #fff;
-        font-size: 19px;
+        font-size: 16px;
       }
     }
 
     .main__portfolio {
-      margin-top: 24px;
+      margin-top: 8px;
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
@@ -124,15 +130,15 @@
     .portfolio-panel--header {
       h3 {
         font-size: 16px;
-        width: 53%;
+    //    width: 53%;
 
       }
     }
     .portfolio-panel--info {
-      width: 40%;
-      margin-top: 6px;
-      display: inline-block;
-      text-align: right;
+  //    width: 40%;
+  //    margin-top: 6px;
+  //    display: inline-block;
+  //    text-align: right;
       p {
 
       }
@@ -140,7 +146,7 @@
     .portdetail-header {
       h3 {
         font-size: 24px;
-        margin-top: 34px;
+        margin-top: 24px;
       }
       p {
         font-size: 13px;
@@ -201,7 +207,7 @@
   .portfolio-panel {
   //  margin: 12px 12px 10px;
     h3 {
-      font-size: 18px;
+      font-size: 16px;
     }
   }
 }

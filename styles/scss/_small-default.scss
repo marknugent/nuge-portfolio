@@ -2,8 +2,13 @@
 $maincolor: #FF4136;
 $secondarycolor: #18303e;
 $linkcolor: #1D25C4;
+$header-nav-color: #19303C;
+//$header-nav-color: #1B4C7B;
+$background-color: #f1f1f1;
 $portfoliodetail-topbar-color: #9c9c9c;
 $resume-topbar-color: #334850;
+$dark-header-color: #19303C;
+$topbar-accent: #3EAAA7;
 
 .dev {
     position: fixed;
@@ -17,7 +22,7 @@ $resume-topbar-color: #334850;
 }
 
 .dev__small {
-//  display: block;
+  display: block;
 }
 
 a {
@@ -29,10 +34,10 @@ a {
   }
 }
 .main-nav a {
-  color: #333;
+  color: $header-nav-color;
   text-decoration: none;
   &:hover {
-    color: #666;
+    color: lighten($header-nav-color, 10%);
     // color: darken($maincolor, 10%);
     //text-decoration: underline;
   }
@@ -54,8 +59,8 @@ body {
 }
 
 .header {
-    border-bottom: solid 4px #333;
-    margin-bottom: 8px;
+  //  border-bottom: solid 4px #333;
+    margin-bottom: 3px;
     padding-bottom: 0;
     @include clearfix;
 }
@@ -65,8 +70,8 @@ body {
   h1 {
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
-    font-weight: 500;
-    color: #333;
+    font-weight: 700;
+    color: $dark-header-color;
     line-height: 24px;
     margin: 0;
     display: inline-block;
@@ -104,8 +109,11 @@ body {
 .main-nav--item__active {
   padding-bottom: 6px;
   margin-bottom: 0;
-  border-bottom: solid 3px #333;
+//  border-bottom: solid 3px #333;
+  position: relative;
 }
+
+
 
 .home-main {
   display: flex;
@@ -179,8 +187,7 @@ body {
 }
 
 .footer__internal {
-    border-top: solid 4px #333;
-    padding-top: 16px;
+    padding-top: 10px;
 }
 
 .footer {
@@ -225,7 +232,7 @@ body {
 }
 
 .topbar__resume {
-  background-color: #334850;
+  background-color: $topbar-accent;
 }
 .topbar__portfolio {
   display: none;
@@ -234,33 +241,34 @@ body {
 }
 .topbar__portfolio-detail {
 //  background-image: url(/images/topbar-b@2x.png);
-  background-color: $portfoliodetail-topbar-color;
-  height: 24px;
+  background-color: $topbar-accent;
+  height: 21px;
 }
 .topbar--button {
 
   display: block;
   position: absolute;
-  top: 0;
+  top: -2px;
   left: 0;
   margin: 0;
   a {
-    background-color: #eaeaea;
-    font-size: 15px;
-    line-height: 15px;
+    background-color: lighten($topbar-accent, 30%);
+    color: $dark-header-color;
+    font-size: 13px;
+    line-height: 13px;
     padding: 3px 12px 3px 8px;
     top: 0;
     left: 0;
   //  border: solid 2px #ccc;
     margin: 0;
     &:hover {
-      background-color: #f3f3f3;
+      background-color: lighten($topbar-accent, 20%);
     }
   }
 }
 
 .main {
-  margin-top: 16px;
+
 }
 .main__portfolio {
   -webkit-font-smoothing: antialiased;
@@ -287,12 +295,12 @@ body {
   margin-top: 18px;
   margin-bottom: 14px;
   h3 {
-    color: #444;
+    color: #555;
     margin: 0 0 4px;
     padding: 0 0 4px;
-    font-weight: 700;
-    font-size: 19px;
-    border-bottom: solid 1px #555;
+    font-weight: 500;
+    font-size: 18px;
+    border-bottom: solid 1px #666;
   }
   h5 {
     padding-top: 20px;
@@ -341,10 +349,10 @@ body {
 
 .portfolio-panel {
   width: 100%;
-  margin: 0 auto 16px;
+  margin: 0 auto 22px;
   text-align: center;
   display: inline-block;
-  border-radius: 4px;
+  //border-radius: 4px;
   position: relative;
   opacity: 0;
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -402,17 +410,17 @@ body {
   width: 100%;
   height: 100%;
   opacity: 0;
-  border-radius: 4px;
-  box-shadow: -2px 2px 12px 0 rgba(0,0,0,0.3);
+  //border-radius: 4px;
+  box-shadow: -4px 4px 1px 0 rgba(0,0,0,0.08);
   opacity: 0;
-  transition: opacity 0.3s ease-in;
+  transition: opacity 0.2s ease-in;
 }
 
 .portfolio-panel:hover::after {
   opacity: 1;
 }
 .portfolio-panel--image {
-  border-radius: 0 0 4px 4px;
+//  border-radius: 0 0 4px 4px;
   min-height: 161px;
 }
 .portfolio-panel--image img {
@@ -423,16 +431,26 @@ body {
 
 .portfolio-panel:hover .portfolio-panel--image img {
 }
+
+.portfolio-panel:hover .portfolio-panel--header {
+//  box-shadow: -2px 2px 12px 0 rgba(0,0,0,0.3);
+//  transition: opacity 0.3s ease-in;
+}
+
 .portfolio-panel--header {
-  background-color: #333;
-  border-radius: 4px 4px 0 0;
-  padding: 4px 8px 3px;
+  background-color: #444;
+  background-color: $dark-header-color;
+//  border-radius: 4px 4px 0 0;
+  padding: 2px 14px 6px 10px;
+  position: absolute;
+  top: 14px;
+  left: -6px;
   text-align: left;
   h3 {
     color: #fff;
     font-weight: 600;
     letter-spacing: auto;
-    font-size: 17px;
+    font-size: 14px;
     vertical-align: top;
     margin: 8px 0 0 4px;
     padding: 0;
@@ -442,8 +460,8 @@ body {
   margin-left: 4px;
   p {
     font-weight: 400;
-    color: #aaa;
-    font-size: 13px;
+    color: #eee;
+    font-size: 12px;
     margin-bottom: 2px;
   }
 }
@@ -453,7 +471,7 @@ body {
   text-align: center;
   img {
     //border-bottom: solid 5px #2a2a2a;
-    border-radius: 0 0 4px 4px;
+  //  border-radius: 0 0 4px 4px;
   }
 }
 
@@ -463,7 +481,7 @@ body {
 }
 .topbar__resume {
 //  height: 39px;
-  padding: 6px 10px 12px;
+  padding: 3px 8px 4px;
 }
 
 .topbar--sec1, .topbar--sec2 {
@@ -472,9 +490,11 @@ body {
 }
 
 .topbar--resumetextlist, .topbar--resumebuttonlist {
-  font-size: 15px;
+  font-size: 12px;
+  font-weight: 400;
   margin: 0;
   padding:0;
+  display: inline-block;
   color: #fff;
   li {
     display: inline-block;
@@ -482,7 +502,7 @@ body {
 }
 .topbar--resumetextlist {
   li {
-    margin-right: 8px;
+    margin-right: 4px;
   }
   a {
     color: #fff;
@@ -500,7 +520,7 @@ body {
   }
 }
 .topbar--imgbutton {
-  margin-right: 3px;
+  margin-right: 8px;
 }
 .topbar--txtbutton {
   a {
@@ -632,6 +652,7 @@ body {
   text-transform: uppercase;
   margin: 10px 0;
 }
+
 .resume-section--linkitem {
   font-weight: bold;
   font-size: 17px;
@@ -640,7 +661,7 @@ body {
 @media screen and (min-width: 365px) {
   // a little tweak for iphone 6-sized displays
   .container {
-    margin: 1.5rem;
+    margin: 1rem 1.5rem;
   }
   .home-letter {
     margin: 2rem;
