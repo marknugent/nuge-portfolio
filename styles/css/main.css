@@ -430,7 +430,7 @@ body {
   margin: 0; }
   .topbar--button a {
     background-color: #a3dedc;
-    color: #19303C;
+    color: #284d60;
     font-size: 13px;
     line-height: 13px;
     padding: 3px 12px 3px 8px;
@@ -996,7 +996,9 @@ body {
   .topbar--button {
     top: 2px; }
     .topbar--button a {
-      font-size: 16px; }
+      font-size: 14px;
+      padding-top: 6px;
+      padding-bottom: 6px; }
   .main__portfolio {
     margin-top: 8px;
     display: flex;

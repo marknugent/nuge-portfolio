@@ -253,7 +253,7 @@ body {
   margin: 0;
   a {
     background-color: lighten($topbar-accent, 30%);
-    color: $dark-header-color;
+    color: lighten($dark-header-color, 10%);
     font-size: 13px;
     line-height: 13px;
     padding: 3px 12px 3px 8px;
