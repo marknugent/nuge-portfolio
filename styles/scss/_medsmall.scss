@@ -20,6 +20,24 @@ $margin-side: 60px;
     background-position: left -260px;
     .header {
       padding: 30px $margin-side 0;
+      &--name {
+        margin: 24px 0 22px;
+        h1 {
+          margin: 0 2px 3px;
+          font-size: 37px;
+          span {
+            // display: inline-block;
+          }
+  
+        }
+        h2 {
+          font-size: 37px;
+          line-height: 24px;
+          margin-bottom: 28px;
+        }
+      }
+    }
+    .main-nav {
     }
   }
 
@@ -34,40 +52,55 @@ $margin-side: 60px;
 
   .header {
     padding: 30px $margin-side 0;
+    margin-bottom: 22px;
     &--name {
       width: auto;
-      margin-top: 14px;
+      margin: 14px 0 22px;
       h1 {
-        display: inline-block;
-        font-size: 20px;
-        line-height: 34px;
-        margin: 0 2px 8px;
-        letter-spacing: 3px;
+        font-size: 37px;
+        letter-spacing: .5px;
+        margin: 0 2px 3px;
         span {
           // display: inline-block;
         }
 
       }
       h2 {
-        display: inline-block;
-        letter-spacing: 3px;
-        font-size: 20px;
-        line-height: 34px;
+        letter-spacing: .5px;
+        font-size: 37px;
+        line-height: 24px;
+        margin-bottom: 28px;
       }
     }
   }
 
-  .main-nav {
-    margin-top: 8px;
-    a {
+  .page-title {
+   font-size: 22px;
+  }
+  .portdetail-header {
+    h3 {
+      font-size: 19px;
+    }
+    p.portdetail-subhed {
+      font-size: 15px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+    }
+    p.portfolio-panel--subhed {
       font-size: 16px;
     }
   }
-
-  .main-nav--item {
-    height: auto;
-    margin-right: 8px;
+  .main-nav {
+    margin: 8px 0 0; 
+    a {
+      font-size: 16px;
+    }
+    &--item {
+      height: auto;
+      margin-right: 8px;
+    }
   }
+
 
   canvas#canvas {
     width: auto!important;
@@ -82,7 +115,7 @@ $margin-side: 60px;
   .home-letter {
     margin: 2rem auto;
     padding: 0 $margin-side;
-    font-size: 17px;
+    font-size: 15px;
     line-height: 1.4em;
   }
 
@@ -97,10 +130,10 @@ $margin-side: 60px;
     box-sizing: border-box;
     width: 100%;
     margin: 12px 0;
-    padding: 12px 26px 26px;
+    padding: 18px 26px 26px;
     &--header {
       h3 {
-        font-size: 18px;
+        font-size: 16px;
         margin: 0 auto 6px;
       }
     }

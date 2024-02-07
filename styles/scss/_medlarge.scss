@@ -11,29 +11,59 @@
   .dev__medlarge {
     display: block;
   }
-
+  .spacer100 {
+    height: 100px;
+  }
+  .spacer250 {
+    height: 500px;
+  }
+  .spacer500 {
+    height: 500px;
+  }
   .container {
     background-position: left -244px;
     &--home {
       background-position: left -223px;
       .main-nav {
         margin-top: 0;
+        a {
+          font-size: 18px;
+          padding: 15px 20px 14px;
+        }
+        &--item {
+          font-size: 24px;
+          &__active {
+           
+            &:before, &:hover:before {
+             
+            }
+          }
+        }
       }
       .header { // HOMEPAGE
         padding-top: 40px;
         &--name {
-          padding-bottom: 19px;
+          padding-bottom: 14px;
+          
+        }
+        h1 {
+          margin-bottom: 8px;
+          font-size: 36px;
         }
         h2 {
+          font-size: 36px;
           display: block;
+          margin-bottom: 0;
         }
       }
     }
   }
   .home-main {
     flex-direction: row;
+    margin-bottom: -150px;
     &--firstcol {
       box-sizing: border-box;
+      padding-right: 40px;
       padding-left: $margin-side;
       width: 50%;
       min-width: 350px;
@@ -44,12 +74,12 @@
     &--secondcol {
       box-sizing: border-box;
       width: 50%;
-      margin: 0 60px 0 30px;
-      padding-right: 60px;
+      margin: 0 0 0 30px;
+      padding-right: 0;
       border-top: none;
       position: relative;
       border-radius: 3px;
-      top: -130px;
+      top: -180px;
       box-shadow: -6px 6px 36px 0px rgba(43,39,43,0.18);
 
     }
@@ -71,21 +101,21 @@
 
   .header { // non-homepage
     padding-top: 34px;
-    margin-bottom: 12px;
+    margin-bottom: 22px;
   }
 
   .header--name {
     padding-bottom: 4px;
     margin-bottom: 0;
     h1 {
-      font-size: 24px;
+      font-size: 31px;
       line-height: 30px;
       margin-right: 10px;
     }
     h2 {
       display: inline-block;
-      line-height: 30px;
-      font-size: 24px;
+      line-height: 20px;
+      font-size: 30px;
     }
   }
   .header--nav {
@@ -95,6 +125,7 @@
 
   .main-nav {
     line-height: 1.15;
+    margin-top: 0;
     &--item {
       font-size: 30px;
       line-height: 1.15;
@@ -112,12 +143,15 @@
     }
   }
 
-  .page-title {
-    font-size: 28px;
-    letter-spacing: 0.25px;
-  }
   h2.page-title {
+    font-family: $font-sans-serif;
+    font-weight: 600;
+    font-size: 22px;
     margin-bottom: 24px;
+    &--border {
+      margin-bottom: 8px;
+      border-bottom: solid 2px #777;
+    }
   }
 
   .topbar__portfolio-detail {
@@ -137,13 +171,13 @@
 
 
   .resume-item {
-    font-size: 16px;
-    line-height: 1.45;
+    font-size: 15px;
+    line-height: 1.4;
     &--eyebrow {
-      font-size: 15px;
+      font-size: 14px;
     }
     &--title {
-      font-size: 20px;
+      font-size: 17px;
       font-weight: 600;
     }
     &--subhead {
@@ -165,10 +199,10 @@
     width: 100%;
     margin: 0 0 28px 0;
     &--header {
-      padding: 16px 34px 14px 36px;
+      padding: 20px 34px 20px 36px;
       h3 {
-        font-size: 20px;
-        margin: 0 0 6px 0;
+        font-size: 15px;
+        margin: 0 0 4px 0;
         line-height: 1.4;
       }
     }
@@ -183,6 +217,7 @@
     }
     &--description {
       margin-top: 10px;
+      font-size: 14px;
     }
 
 
@@ -190,33 +225,63 @@
 
   .portdetail-header {
     h3 {
-      font-size: 30px;
-      margin-bottom: 20px;
+      font-size: 18px;
     }
     .portfolio-panel--subhed {
-      font-size: 16px;
-      margin-bottom: 7px;
+      font-size: 15px;
+      margin: 0;
+
     }
+
   }
+
   .portdetail-body {
     margin-top: 15px;
     font-size: 15px;
     line-height: 1.5em;
+    div:first-of-type {
+      a.portdetail-body--image:first-child::after {
+        content: (' click images to enlarge');
+        color: #aaa;
+        font-size: 14px;
+        font-style: italic;
+        position: relative;
+        left: 6px;
+        text-align: left;
+        display: block;
+      }
+    }
+
     h4 {
-      font-size: 20px;
+      font-size: 18px;
       margin-top: 28px;
       margin-bottom: 12px;
       margin-right: 570px;
       line-height: 1.3;
     }
     p, ul, blockquote {
-      font-size: 16px;
+      font-size: 15px;
       max-width: 570px;
     }
     &--section {
       position: relative;
+      margin-bottom: 60px;
+      &.long {
+        margin-bottom: 140px;
+      }
+      &.longer {
+        margin-bottom: 190px;
+      }
+      &.longest {
+        margin-bottom: 390px;
+      }
     }
     &--image {
+      text-decoration: none;
+      img {
+        margin: 0;
+        display: block;
+      }
       &--top {
       }
       &--topmore {
@@ -277,14 +342,14 @@
     padding: 16px 46px 23px;
     margin-bottom: 34px;
     &--body {
-      font-size: 16px;
-      line-height: 1.45;
+      font-size: 15px;
+      line-height: 1.4;
       &:after {
         right: -12px;
       }
     }
     &--person {
-      font-size: 16px;
+      font-size: 15px;
       color: #444;
     }
     &--description {
@@ -295,7 +360,7 @@
     margin-bottom: 36px;
   }
   .resume-section {
-    font-size: 16px;
+    font-size: 15px;
     margin: 50px 0;
   }
 }// end @media min-width 840
@@ -324,28 +389,28 @@
       .main-nav {
 
         &--item {
-          margin-right: 16px;
+          margin-right: 10px;
         }
         a {
-          padding: 16px 24px 17px;
-          font-size: 20px;
+          padding: 15px 24px 16px;
+         // font-size: 20px;
         }
       }
       .header { // HOMEPAGE
-//        padding-top: 40px;
         padding: 48px &$margin-side 0;
         padding-right: $margin-side;
         padding-left: $margin-side;
+        padding-top: 56px;
         &--name {
-          padding-bottom: 24px;
+          padding-bottom: 14px;
         }
 
         h1 {
-          font-size: 27px;
-          padding-bottom: 12px;
+        //  font-size: 27px;
+          padding-bottom: 10px;
         }
         h2 {
-          font-size: 27px;
+        //  font-size: 27px;
           display: block;
         }
       }
@@ -358,6 +423,7 @@
   }
   .portdetail-body {
     h4 {
+      font-weight: 600;
       margin-top: 32px;
     }
     p {
@@ -366,8 +432,9 @@
     p, ul, blockquote {
       margin-right: 590px;
   //    font-size: 17px;
-      line-height: 1.45;
+      line-height: 1.4;
     }
+
     &--image {
         position: relative;
         right: 12px;
@@ -376,22 +443,38 @@
         float: right;
         clear: right;
         width: 520px;
-        img {
-          margin: 0 auto;
-        }
+        margin-top: -10px;
       &--top {
-        margin-top: -130px;
+        margin-top: -180px;
+        position: relative;
+      }
+      &--topless {
+        margin-top: -124px;
         position: relative;
       }
       &--topmore {
-        margin-top: -155px;
+        margin-top: -185px;
         position: relative;
       }
     }
   }
 
   .portdetail-header {
-
+    h3 span {
+      margin-right: 590px;
+    }
+    p.portdetail-subhed {
+      font-size: 15px;
+      margin: 0 0 21px;
+    }
+    p.portdetail-subhed {
+      margin-right: 590px;
+    }
+    p.portfolio-panel--subhed {
+      margin-right: 590px;
+      opacity: .45;
+      margin-bottom: 2px;
+    }
   }
 
   .home-main {
@@ -400,14 +483,17 @@
       padding-left: $margin-side;
     }
     &--secondcol {
-      margin: 0 $margin-side 0 0px;
-      top: -146px;
+      margin: 0 60px 0 0px;
+      top: -185px;
       padding-right: $margin-side;
     }
   }
 
   .main {
     padding: 10px $margin-side;
+    &__portfolio-detail {
+      padding-right: 24px;
+    }
   }
 
   .portfolio-panel {
@@ -416,7 +502,8 @@
       padding: 24px 40px 20px 50px;
 
       h3 {
-        font-size: 22px;
+        font-size: 17px;
+        line-height: 1.3;
       }
     }
     &--info {
@@ -426,7 +513,14 @@
       }
     }
     &--subhed {
-    //  margin-bottom: 0;
+      font-weight: 500;
+      //  margin-bottom: 0;
+      opacity: .58;
+      font-size: 14px;
+      margin-bottom: 1px;
+        span {
+         
+        }
     }
     &--image {
       min-height: 232px;
@@ -438,7 +532,7 @@
 
 
   .home-letter {
-    font-size: 18px;
+    font-size: 15px;
     width: auto;
     margin: 2rem 0 2rem;
     padding: 0;

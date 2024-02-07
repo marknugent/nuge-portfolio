@@ -1,17 +1,20 @@
 // $maincolor: #FF1616;
 $maincolor: #FF4136;
 $secondarycolor: #18303e;
-$linkcolor: #4F5156;
-$light-color: #F9FAF6;
-
+$linkcolor: #068ECF;
+$light-color: #f8f8f8;
+$header-secondary: rgba(255,255,255,0.69);
 $body-copy-color: #303337;
 $darker-body-copy-color: #212023;
-$lighter-body-copy-color: #465659;
+$lighter-body-copy-color: #3b474a;
 // old text color 4F5156
 
 $header-text-color: $light-color;
 $header-nav-color: #526C80;
 $header-nav-bg-color: #526C80;
+
+$nav-bg-off: rgba(255,255,255,0.1);
+$nav-bg-on: rgba(255,255,255,0.84);
 
 $background-color: $light-color;
 $portfoliodetail-topbar-color: #9c9c9c;
@@ -19,27 +22,24 @@ $resume-topbar-color: #334850;
 $dark-header-color: #19303C;
 $dark-nav-text-color: #2C262F;
 $topbar-accent: #3EAAA7;
-$footer-background-color: #EDEEEA;
-$footer-color: #787A7B;
+$footer-background-color: #f0f0f0;
+$footer-color: rgba(0,0,0,0.45);
 
-$font-sans-serif: futura-pt, sans-serif;
-$font-body: ff-tisa-web-pro, serif;
-
-$portfolio-panel-bg: #EEEFEB;
+$font-sans-serif: 'Inter', sans-serif;
+$font-body: 'Inter', sans-serif;
+$font-text: 'Inter', sans-serif;
+$portfolio-panel-bg: #fbfbfb;
 
 $margin-top: 20px;
 $margin-side: 30px;
 
-// tisa pro — 
-//   normal: 400
-//   medium: 600
-//   bold: 700
-// futura pt -
-//   book: 400
-//   medium: 500
-//   demi: 600
-// futura-pt-bold
-//   (no variants)
+
+// regular: 400
+// medium: 500
+// semibold: 600
+// bold: 700
+// extrabold: 800
+
 
 .dev {
     position: fixed;
@@ -77,9 +77,10 @@ a {
 }
 
 .container {
+  font-size: 14px;
   flex-grow: 1;
   margin: 0;
-  background-image: url('/images/hdr-texture@2x.png');
+//  background-image: url('/images/hdr-texture@2x.png');
   background-size: 1184px 406px;
   background-repeat: repeat-x;
   background-position: left -268px;
@@ -89,104 +90,83 @@ a {
   line-height: 1;
   padding: 26px $margin-side 0;
   font-family: $font-sans-serif;
-
+  background-color: #343434;
+  margin-bottom: 26px;
   @include clearfix;
   &--name {
-    text-transform: uppercase;
-    color: $header-text-color;
+    color: #fff;
 //    opacity: .93;
     opacity: 1;
-    letter-spacing: 2px;
     a {
-      color: $header-text-color;
+      color: #fff;
     }
     h1 {
-      font-family: futura-pt-bold, sans-serif;
-      font-size: 18px;
-      padding-bottom: 6px;
+      font-size: 28px;
+      padding-bottom: 12px;
+      font-weight: 600;
       margin: 0;
       display: inline-block;
     }
     h2 {
-      font-size: 18px;
+      color: $header-secondary;
+      font-size: 28px;
       line-height: 1;
-      font-weight: 300;
+      font-weight: 600;
       line-height: 18px;
-      margin: 0 0 8px;
+      margin: 0 0 20px;
+      padding-bottom: 6px;
     }
   }
   &--nav {
-
+    
   }
 }
 
 .container--home {
   background-position: left -280px;
   .header {
-    padding: $margin-top $margin-side 0;
-    &--name {
-      h1 {
-        font-size: 22px;
-        padding-bottom: 5px;
-        margin: 0;
-      }
-      h2 {
-        font-size: 22px;
-        line-height: 1;
-        line-height: 21px;
-        margin: 0 0 8px;
-      }
-    }
-    &--name {
-      a {}
-      h1 {}
-      h2 {}
-    }
-    &--nav {}
+    margin-bottom: 13px;
   }
   .main-nav { //        HOME!  HOME!  HOME!
-    margin: 18px 0 0;
+  //  margin: 18px 0 0;
     padding: 0;
     &--item {
-      height: 22px;
-      padding: 0 0 8px 0;
-      margin: 0 5px 0 0;
+
     }
     &--item-active {
-      padding-bottom: 6px;
-      margin-bottom: 0;
+      background-color: $nav-bg-on;
+
     }
     a {
-      padding: 10px 18px 13px;
-      font-size: 18px;
-      border-radius: 4px;
+      background-color: $nav-bg-off;
+
     }
   }
 }
 
-.main-nav {
+.main-nav { // BASE STYLE
   font-weight: 500;
-  margin: 18px 0 0;
+  font-family: $font-body;
+  margin: 14px 0 0;
   padding: 0;
   text-align: left;
-  letter-spacing: 1px;
+  font-size: 16px;
   &--item {
     box-sizing: content-box;
     display: inline-block;
-    height: 20px;
-    padding: 0 0 6px 0;
-    margin: 0 5px 0 0;
+//    height: 20px;
+    padding: 0;
+    margin: 0 6px 0 0;
   }
   &--item__active {
-    padding-bottom: 6px;
     margin-bottom: 0;
     position: relative;
   }
   & .main-nav--item__active {
     a {
-      background-color: $background-color;
+      background-color: $nav-bg-on;
       color: $dark-nav-text-color;
-      padding-bottom: 12px;
+     
       &:hover {
         background-color: $background-color;
       }
@@ -194,15 +174,16 @@ a {
   }
   a {
     color: $header-text-color;
-    border-radius: 4px 4px 0 0;
-    padding: 10px 18px 9px;
-    font-size: 16px;
+    background-color: $nav-bg-off;
+    border: none;
+    border-radius: 1px 1px 0 0;
+    padding: 13px 22px 13px;
     display: inline-block;
-    background-color: $header-nav-bg-color;
     text-decoration: none;
     &:hover {
-      background-color: darken($header-nav-bg-color, 10%);
+      background-color: #555;
     }
+    border-bottom: none;
   }
 }
 
@@ -216,12 +197,12 @@ a {
   font-weight: 400;
   font-size: 15px;
   &--firstcol {
-    padding: 0 $margin-side 16px;
+    padding: 0 $margin-side 20px;
     -webkit-font-smoothing: antialiased;
     order: 0;
     opacity: 0;
     animation-name: fadeinscale;
-    animation-duration: .5s;
+    animation-duration: .4s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
@@ -234,8 +215,8 @@ a {
     max-width: 520px;
     background-color: $maincolor;
     animation-name: fadeinscale;
-    animation-delay: .6s;
-    animation-duration: .5s;
+    animation-delay: .5s;
+    animation-duration: .7s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
@@ -244,12 +225,12 @@ a {
 }
 
 .home-letter {
-  font-size: 16px;
+  font-size: 14px;
   opacity: 0;
   animation-name: fadein;
   animation-duration: .8s;
   animation-timing-function: ease-in-out;
-  animation-delay: .7s;
+  animation-delay: .2s;
   animation-fill-mode: forwards;
 }
 
@@ -259,7 +240,7 @@ a {
   color: $footer-color;
   line-height: 1.5;
   background-color: $footer-background-color;
-  font-size: 15px;
+  font-size: 14px;
   padding: 20px $margin-side 24px;
   a {
     color: $footer-color;
@@ -272,7 +253,7 @@ a {
     padding-bottom: 8px;
   }
   &__toplinks {
-    font-weight: 600;
+    font-weight: 500;
     padding-bottom: 8px;
   }
   &__sublinks {
@@ -304,7 +285,6 @@ a {
     line-height: 24px;
     padding: 6px 14px;
     margin: 0;
-    color: #FFFFFF;
   }
 }
 
@@ -357,19 +337,44 @@ a {
 
 .page-title {
   width: 100%;
-  font-size: 22px;
-  letter-spacing: 0.5px;
+  font-size: 18px;
   font-family: $font-sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   margin: 0 0 14px;
+  position: relative;
+  &--border {
+    margin: 0 0 12px;
+    padding: 0 0 8px;
+    border-bottom: solid 2px #333;
+  }
 }
 
+.header-link {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: $font-body;
+  position: absolute;
+  right: 0;
+  top: -14px;
+  a {
+    color: #777;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &__icon {
+    position: relative;
+    top: 10px;
+  }
+}
 .clearboth {
   @include clearfix;
   clear: both;
 }
 .portdetail-header {
   @include clearfix;
+  font-family: $font-body;
   clear: both;
   opacity: 0;
   animation-name: fadein;
@@ -384,11 +389,27 @@ a {
   }
   h3 {
     font-family: $font-sans-serif;
-    margin: 0 0 12px;
-    padding: 0 0 8px;
+    margin: 0 0 4px;
+    padding: 0;
+    font-weight: 600;
+    font-size: 17px;
+    
+    line-height: 1.1em;
+  }
+  p.portdetail-subhed {
+    color: #5a5a5a;
+    font-size: 16px;
+    line-height: 1.3;
+    font-weight: 400;
+    margin: 0 0 10px;
+    border-bottom: solid 1px #555;
+    padding-bottom: 14px;
+  }
+  p.portfolio-panel--subhed {
+    font-family: $font-body;
     font-weight: 500;
-    font-size: 24px;
-    border-bottom: solid 1px #c3c3c3;
+    font-size: 13px;
+    line-height: 1.3;
   }
   h5 {
     padding-top: 20px;
@@ -396,9 +417,9 @@ a {
     margin-bottom: 18px;
     font-size: 24px;
     font-weight: 500;
-
     border-bottom: solid 1px #333;
   }
+  
   p {
     font-weight: 500;
     padding: 1px 0;
@@ -406,6 +427,7 @@ a {
     font-size: 14px;
     line-height: 14px;
   }
+  
 }
 
 .portdetail-body {
@@ -429,10 +451,14 @@ a {
     max-width: 520px;
 
   }
-  &--image img {
-    max-width: 100%;
+  &--image {
+    z-index: 10;
+    img {
+      max-width: 100%;
+    }
   }
 }
+
 
 .port-link {
   text-decoration: none;
@@ -441,6 +467,7 @@ a {
 .portfolio-panel {
   color: $darker-body-copy-color;
   background-color: $portfolio-panel-bg;
+  box-shadow: -1px 2px 22px 1px rgba(0, 0, 0, 0.04);
   margin: 0 auto 22px;
   padding: 0 14px 18px;
   display: inline-block;
@@ -454,11 +481,18 @@ a {
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+  &--subhed {
+    font-weight: 500;
+    margin: 2px 0;
+    color: #000;
+    opacity: .5;
+  }
+
   &:hover {
-//    box-shadow: 0 2px 14px 1px rgba(0, 0, 0, 0.07);
-    background-color: #E7E8E4; // #EEEFEB;
+    box-shadow: -1px 2px 22px 1px rgba(0, 0, 0, 0.06);
+    background-color: #fff; // #EEEFEB;
     .portfolio-panel--image img {
-      filter: contrast(110%) brightness(92%);
+      filter: contrast(110%) brightness(101%);
     }
   }
   a {
@@ -537,11 +571,11 @@ a {
   padding-bottom: 12px;
 //  border-radius: 4px 4px 0 0;
   h3 {
-    font-weight: 600;
-    letter-spacing: auto;
-    font-size: 18px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.3em;
     vertical-align: top;
-    margin: 8px 0 4px 4px;
+    margin: 12px 0 8px 4px;
     padding: 0;
   }
 }
@@ -549,28 +583,21 @@ a {
 .portfolio-panel {
   &--header {
     h3 {
-      font-weight: 800;
+      font-weight: 700;
     }
   }
   &--info {
-    font-size: 14px;
+    font-size: 15px;
     margin-left: 4px;
   }
-  &--subhed {
-    color: #333;
-    margin: 0;
-    span {
-        text-transform: uppercase;
-        font-size: 12px;
-        font-weight: 700;
-    }
-  }
+ 
   &--description {
     display: none;
   }
   &--image {
     margin: 0 auto;
   }
+  
 }
 
 
@@ -604,7 +631,7 @@ a {
     margin-right: 4px;
   }
   a {
-    color: #fff;
+    color: $light-color;
     text-decoration: underline;
   }
 }
@@ -638,7 +665,7 @@ a {
   display: block;
   max-width: 630px;
   margin-top: 22px;
-  marginquotebottom: 24px;
+  margin-bottom: 24px;
   opacity: 0;
   animation-name: fadein;
   animation-duration: .5s;
@@ -661,26 +688,26 @@ a {
   animation-fill-mode: forwards;
 }
 .resume-item {
-  font-size: 15px;
+  font-size: 13px;
   margin-bottom: 40px;
 
   &--eyebrow {
-    font-family: $font-sans-serif;
+    font-family: $font-text;
     color: #7a7a7a;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 1.4;
+    letter-spacing: .75px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 300;
-    margin-bottom: 2px;
+    font-weight: 500;
+    margin-bottom: 4px;
   }
   &--title {
-    font-size: 19px;
+    font-size: 15px;
     margin: 0 auto;
-    color: #222;
+    color: $darker-body-copy-color;
     line-height: 1.3em;
     font-weight: 500;
-    margin-bottom: 2px;
+    margin-bottom: 0;
   }
   &--subhead {
     font-weight: 800;
@@ -702,15 +729,15 @@ a {
   }
 }
 .resume-subhead {
-  font-family: $font-sans-serif;
-  color: #888;
-  letter-spacing: 1px;
+  font-family: $font-text;
+  color: #444;
   text-transform: uppercase;
-  font-size: 19px;
+  font-size: 17px;
   padding-bottom: 8px;
   font-weight: 500;
-  border-bottom: solid 1px #d2d2d2;
-  margin: 18px 0 22px;
+  border-bottom: solid 1px #999;
+  letter-spacing: 1.5px;
+  margin: 18px 0 19px;
 }
 
 .resume-quote {
@@ -719,16 +746,17 @@ a {
   background-repeat: no-repeat;
   background-size: 14px 11px;
   background-position: 17px 22px;
-  background-color: #EEEFEB;
+  background-color: #fff;
+  box-shadow: -2px 2px 20px rgba(0,0,0,0.03);;
   padding: .8rem 2rem 1rem;
-  border-radius: 4px;
-  margin: 10px 0 22px;
+  border-radius: 1px;
+  margin: 18px 0 22px;
 }
 
 .resume-quote--body {
   position: relative;
   margin-bottom: 10px;
-  color: #405053;
+  color: $darker-body-copy-color;
   font-size: 15px;
   &::after {
     content: ' ';
@@ -749,20 +777,20 @@ a {
 .resume-quote--description {
   font-size: 14px;
   color: #637376;
-  line-height: 1.45em;
+  line-height: 1.4em;
   margin-top: 6px;
 }
 
 .resume-section {
   font-size: 15px;
   margin: 36px 0;
-  line-height: 1.45em;
+  line-height: 1.4em;
   p {
     color: $lighter-body-copy-color;
   }
   &--linkitem {
     font-weight: 600;
-    font-size: 17px;
+    font-size: 15px;
   }
 }
 .resume-section--header {
@@ -772,77 +800,6 @@ a {
   margin: 10px 0;
 }
 
-.resume-section--linkitem {
-
-}
-
-@media screen and (min-width: 365px) {
-  // a little tweak for iphone 6-sized displays
-  $margin-top: 22px;
-  $margin-side: 42px;
-
-  .header {
-    padding: $margin-top $margin-side 0;
-    &--name {
-      h1 {
-          padding-right: 2px;
-
-        span { }
-      }
-      h2 {
-
-      }
-    }
-    &--nav {
-      &--item {}
-    }
-
-  }
-
-  .container--home {
-    background-position: left -263px;
-    .header {
-      padding: 30px $margin-side 0;
-      &--name {
-        h1 {
-          font-size: 23px;
-          padding-bottom: 8px;
-          padding-right: 4px;
-        }
-        h2 {
-          font-size: 23px;
-        }
-      }
-    }
-    .main-nav {
-      margin-top: 22px;
-      a {
-      }
-    }
-  }
-
-  .main {
-    margin: 34px $margin-side;
-      @include clearfix;
-  }
-
-  .main-nav {
-    &--item {
-      margin-right: 8px;
-    }
-    a {
-      font-size: 18px;
-      padding: 11px 20px 10px;
-    }
-  }
-  .home-main {
-    &--firstcol {
-      padding: 0 $margin-side 20px;
-    }
-  }
-  .home-letter {
-  }
-  .footer {
-    padding: 30px $margin-side 28px;
-  }
-}
+li {
+  margin-bottom: 15px;
+}       
