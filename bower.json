@@ -33,7 +33,9 @@
   ],
   "private": true,
   "dependencies": {
-    "lightbox2": "^2.9.0",
-    "modernizr": "components-modernizr#^3.5.0"
+    "lightbox2": "^2.9.0"
+  }
+}
+modernizr": "components-modernizr#^3.5.0"
   }
 }
