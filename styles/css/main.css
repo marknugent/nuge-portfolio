@@ -594,6 +594,10 @@ a {
   padding: .8rem 2rem 1rem;
   border-radius: 1px;
   margin: 18px 0 22px; }
+  .resume-quote--source {
+    font-size: 12px;
+    font-style: italic;
+    opacity: 0.6; }
 
 .resume-quote--body {
   position: relative;
@@ -1088,8 +1092,8 @@ li {
     width: 47%;
     float: right; }
   .resume-quote {
-    background-position: 24px 36px;
-    padding: 16px 46px 23px;
+    background-position: 24px 28px;
+    padding: 16px 46px 20px;
     margin-bottom: 34px; }
     .resume-quote--body {
       font-size: 14px;
