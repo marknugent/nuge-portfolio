@@ -1,0 +1,46 @@
+# nuge.co — Apache 2.4
+# Generated as part of the site build; edit src/_static/htaccess, not this copy.
+
+# ---------------------------------------------------------------- 404 page
+ErrorDocument 404 /404.html
+
+# ------------------------------------------------- keep this site unindexed
+# robots.txt only *asks* crawlers not to fetch. This header tells anything
+# that does fetch not to index, archive, snippet, or follow. Between the two,
+# a compliant crawler has no route to putting this site in a search result.
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate"
+</IfModule>
+
+# ------------------------------------------ redirects from the 2019-era site
+# Every project page moved from /portfolio/<name>.html to /portfolio/<slug>/,
+# and the old portfolio index was merged into the home page.
+<IfModule mod_alias.c>
+  RedirectMatch 301 ^/portfolio/cda\.html$           /portfolio/cisco-cda/
+  RedirectMatch 301 ^/portfolio/sifive\.html$        /portfolio/sifive/
+  RedirectMatch 301 ^/portfolio/romulus\.html$       /portfolio/romulus/
+  RedirectMatch 301 ^/portfolio/calls-mobile\.html$  /portfolio/i360-calls-mobile/
+  RedirectMatch 301 ^/portfolio/kleptocracy\.html$   /portfolio/kleptocracy/
+  RedirectMatch 301 ^/portfolio/readymade\.html$     /portfolio/beltway-nonprofit/
+  # House Plans was retired from the site; send it to the work list.
+  RedirectMatch 301 ^/portfolio/house-plans\.html$   /
+  RedirectMatch 301 ^/portfolio/sifive-logos\.html$  /portfolio/sifive-logos/
+
+  # Retired: cei.html duplicated the ReadyMadeWeb project.
+  RedirectMatch 301 ^/portfolio/cei\.html$           /portfolio/beltway-nonprofit/
+
+  # Excluded from the new site; send to the work list rather than 404.
+  RedirectMatch 301 ^/portfolio/calls-web\.html$     /
+
+  # The standalone résumé page gained a trailing-slash URL.
+  RedirectMatch 301 ^/resume\.html$                  /resume/
+
+  # The old portfolio index was folded into the home page. Anchored with $ so
+  # it cannot swallow /portfolio/<slug>/ below it.
+  RedirectMatch 301 ^/portfolio/?$                   /
+</IfModule>
+
+# ------------------------------------------------------- small housekeeping
+<IfModule mod_autoindex.c>
+  Options -Indexes
+</IfModule>

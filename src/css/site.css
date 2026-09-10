@@ -1,0 +1,1538 @@
+/* =========================================================================
+   Mark Nugent — portfolio
+   Swiss-influenced: 12-column grid, type-led hierarchy, one accent colour.
+   No shadows, no radii, no gradients. Rules and bands do the structural work.
+   Tokens and the type scale come from the "System" artboard of the mockups.
+   ========================================================================= */
+
+/* ---------------------------------------------------------------- tokens */
+:root {
+  /* Palette */
+  --ink: #111111;
+  --accent: #de3226;
+  --accent-bright: #ff6b5e; /* accent on dark grounds, for contrast */
+  --mute: #6e6b67;
+  --field: #efede9;
+  --paper: #fafaf8;
+  --rule: #c9c4bb;
+  --rule-dark: #3a3733;
+  --body: #2a2825;
+  --body-soft: #4a4744;
+  --on-dark: #fafaf8;
+  --on-dark-mute: #9a958d;
+  --on-dark-body: #c6c1b8;
+
+  /* Grid: 12 columns, 24px gutters, 80px page margins at full width. */
+  --gutter: 24px;
+  --margin: 80px;
+
+  /* Type scale — fluid between a mobile floor and the mockup's desktop value.
+     The desktop cap is exactly the size given in the System artboard. */
+  --t-display: clamp(4rem, 11vw, 6.5rem); /* 132 */
+  --t-page: clamp(2.75rem, 7.5vw, 6.75rem); /* 108 */
+  --t-page-lg: clamp(3rem, 9.2vw, 8.25rem); /* 132, short titles */
+  --t-section: clamp(2.25rem, 4.6vw, 3.75rem); /* 60 */
+  --t-project: clamp(1.875rem, 3.2vw, 2.75rem); /* 44 */
+  --t-quote: clamp(1.5rem, 2.8vw, 2.375rem); /* 38 */
+  --t-beat: clamp(1.5rem, 2.5vw, 2.125rem); /* 34 */
+  --t-lead: clamp(1.125rem, 1.5vw, 1.375rem); /* 22 */
+  --t-subhead: clamp(1.25rem, 2vw, 1.75rem); /* 28 */
+  --t-accent-line: clamp(1.75rem, 4.6vw, 4.25rem); /* 52 */
+  --t-intro: clamp(1.0625rem, 1.3vw, 1.1875rem); /* 19 */
+  --t-body: clamp(1rem, 1.15vw, 1.125rem); /* 18 */
+  --t-small: 0.875rem; /* 14 */
+  --t-label: 0.75rem; /* 12, mono */
+
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --margin: 48px;
+  }
+}
+@media (max-width: 900px) {
+  :root {
+    --margin: 32px;
+    --gutter: 20px;
+  }
+}
+@media (max-width: 640px) {
+  :root {
+    --margin: 20px;
+    --gutter: 16px;
+  }
+}
+
+/* ------------------------------------------------------------- baseline */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--t-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--ink);
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+figure,
+blockquote {
+  margin: 0;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--ink);
+  color: var(--on-dark);
+  padding: 12px 20px;
+  font: 500 var(--t-label) / 1 var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* ----------------------------------------------------------- primitives */
+
+/* The 12-column grid. Every major block uses it so columns line up down
+   the whole page — the structural promise of the design. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+}
+
+.bleed {
+  padding-left: var(--margin);
+  padding-right: var(--margin);
+}
+
+.band-dark {
+  background: var(--ink);
+  color: var(--on-dark);
+}
+
+.rule-accent {
+  border-bottom: 8px solid var(--accent);
+}
+
+/* Mono eyebrow / label — used for every piece of metadata in the system. */
+.label {
+  font: 500 var(--t-label) / 1.5 var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.label--accent {
+  color: var(--accent);
+}
+
+/* ------------------------------------------------------------- masthead */
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px var(--margin);
+  background: var(--ink);
+  color: var(--on-dark);
+}
+
+.masthead__name {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.masthead__name a {
+  color: var(--on-dark);
+  font: 700 1.0625rem/1 var(--sans);
+  letter-spacing: -0.02em;
+}
+.masthead__name a:hover {
+  color: var(--accent-bright);
+}
+.masthead__role {
+  font: 400 0.9375rem/1 var(--sans);
+  color: var(--on-dark-mute);
+}
+
+.masthead__nav {
+  display: flex;
+  gap: 36px;
+  font: 500 var(--t-label) / 1 var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.masthead__nav a {
+  color: var(--on-dark);
+}
+.masthead__nav a:hover {
+  color: var(--accent-bright);
+}
+.masthead__nav a[aria-current] {
+  color: var(--accent-bright);
+}
+.masthead__nav .is-contact {
+  color: var(--on-dark-mute);
+}
+
+/* Only three links, so they stay visible at every width — no disclosure
+   menu, and nothing hidden. Below 640 the bar becomes two stacked rows. */
+@media (max-width: 640px) {
+  .masthead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .masthead__nav {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+}
+
+/* ------------------------------------------------------- main-page hero */
+.hero {
+  padding: 104px var(--margin) 120px;
+  background: var(--ink);
+  color: var(--on-dark);
+  border-bottom: 8px solid var(--accent);
+}
+
+.hero__head {
+  grid-column: 1 / span 6;
+}
+
+.hero__name {
+  font: 700 var(--t-display) / 0.86 var(--sans);
+  letter-spacing: -0.055em;
+}
+
+.hero__role {
+  margin-top: 22px;
+  font: 500 var(--t-accent-line) / 1.1 var(--sans);
+  letter-spacing: -0.022em;
+  color: var(--accent-bright);
+}
+
+.hero__intro {
+  /* Columns 7-10. Pulled in from both sides: the left edge closes the dead
+     space beside "Nugent", and the right edge stops two columns short of the
+     margin so the block reads as placed rather than flushed. Only viable on
+     wide screens — below 1360 it returns to 8/span 5 so the measure holds. */
+  grid-column: 7 / span 4;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding-top: 14px;
+}
+.hero__intro p {
+  font-size: var(--t-intro);
+  line-height: 1.6;
+  color: var(--on-dark-body);
+}
+.hero__intro a {
+  color: var(--accent-bright);
+  border-bottom: 2px solid var(--accent-bright);
+}
+.hero__intro a:hover {
+  color: var(--on-dark);
+  border-bottom-color: var(--on-dark);
+}
+
+/* The hero is the one place a naive scale-down fails: at tablet the intro
+   no longer has room beside a 100px+ headline, so the two columns stack and
+   the headline takes the full measure. The name stays broken across two
+   lines at every width — that stacked block is the page's signature. */
+@media (max-width: 1360px) {
+  .hero__head {
+    grid-column: 1 / span 7;
+  }
+  .hero__intro {
+    grid-column: 8 / span 5;
+  }
+}
+
+@media (max-width: 1000px) {
+  .hero {
+    padding-top: 72px;
+    padding-bottom: 80px;
+  }
+  .hero__head,
+  .hero__intro {
+    grid-column: 1 / -1;
+  }
+  .hero__intro {
+    padding-top: 0;
+    margin-top: 40px;
+    max-width: 62ch;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 52px;
+    padding-bottom: 56px;
+    border-bottom-width: 6px;
+  }
+  .hero__role {
+    margin-top: 14px;
+  }
+  .hero__intro {
+    margin-top: 32px;
+    gap: 18px;
+  }
+}
+
+/* ---------------------------------------------------------- section head */
+.section-head {
+  margin: 64px var(--margin) 0;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--ink);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  font: 500 var(--t-label) / 1 var(--mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.section-head__count {
+  color: var(--mute);
+}
+
+@media (max-width: 480px) {
+  .section-head {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+/* ------------------------------------------------- project list — tier 1 */
+.work-list {
+  padding: 0 var(--margin);
+}
+
+.work-row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+  padding: 52px 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+}
+.work-row:last-child {
+  border-bottom: 0;
+}
+
+.work-row__text {
+  grid-column: 1 / span 4;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.work-row__category {
+  font: 500 var(--t-label) / 1 var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.work-row__title {
+  font: 700 var(--t-project) / 1.02 var(--sans);
+  letter-spacing: -0.04em;
+}
+.work-row:hover .work-row__title {
+  color: var(--accent);
+}
+
+.work-row__desc {
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: var(--body);
+  max-width: 38ch;
+}
+
+.work-row__role {
+  margin-top: 8px;
+  font-size: var(--t-small);
+  line-height: 1.5;
+  color: var(--mute);
+}
+
+.work-row__media {
+  grid-column: 6 / span 7;
+  background: var(--field);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+.work-row__media img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* At tablet the 4/7 split starves the text column, so the row stacks.
+   The image moves to the top, which makes the stacked Tier 1 row read as
+   the same object as a Tier 2 card — one card shape, two scales. */
+@media (max-width: 900px) {
+  .work-row {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 36px 0;
+  }
+  .work-row__media {
+    order: -1;
+  }
+  .work-row__media img {
+    height: clamp(200px, 42vw, 340px);
+  }
+  .work-row__desc {
+    max-width: 62ch;
+  }
+}
+
+/* ------------------------------------------------- project list — tier 2 */
+.work-grid-wrap {
+  padding: 44px var(--margin) 88px;
+}
+
+/* Four cards, each exactly three of the twelve columns, separated by real
+   gutters — so this grid lines up with every other block on the page. */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gutter);
+}
+
+.work-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: var(--ink);
+}
+.work-card__media {
+  background: var(--field);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+.work-card__media img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+.work-card__category {
+  font: 500 var(--t-label) / 1 var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.work-card__title {
+  font: 700 1.5rem/1.12 var(--sans);
+  letter-spacing: -0.028em;
+}
+.work-card:hover .work-card__title {
+  color: var(--accent);
+}
+.work-card__desc {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--body-soft);
+}
+
+/* Four-up gets too narrow for the titles below ~1000px, so it halves. */
+@media (max-width: 1000px) {
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+}
+@media (max-width: 600px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .work-card__media img {
+    height: clamp(180px, 46vw, 240px);
+  }
+}
+
+/* ---------------------------------------------------- project detail head */
+.project-head {
+  padding: 80px var(--margin) 72px;
+  background: var(--ink);
+  color: var(--on-dark);
+}
+
+.project-head__text {
+  grid-column: 1 / span 8;
+}
+
+.project-head__kicker {
+  display: block;
+  margin-bottom: 28px;
+  font: 500 var(--t-label) / 1 var(--mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-bright);
+}
+
+.project-head__title {
+  font: 700 var(--t-page) / 0.9 var(--sans);
+  letter-spacing: -0.05em;
+}
+/* Short titles get the larger display size, as in the mockups. */
+.project-head__title--lg {
+  font-size: var(--t-page-lg);
+  letter-spacing: -0.055em;
+}
+
+.project-head__subhead {
+  margin-top: 28px;
+  font: 400 var(--t-subhead) / 1.35 var(--sans);
+  letter-spacing: -0.02em;
+  color: var(--on-dark-body);
+  max-width: 34ch;
+}
+
+/* Metadata table -------------------------------------------------------- */
+.meta {
+  grid-column: 10 / span 3;
+  align-self: end;
+}
+
+.meta dt,
+.meta dd {
+  margin: 0;
+}
+
+.meta__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--rule-dark);
+  font-size: var(--t-small);
+  line-height: 1.5;
+}
+.meta__row:last-child {
+  border-bottom: 1px solid var(--rule-dark);
+}
+.meta__key {
+  color: var(--on-dark-mute);
+  white-space: nowrap;
+}
+.meta__val {
+  text-align: right;
+  max-width: 22ch;
+}
+
+/* Below 1000 the head stacks, and the label-left / value-right pattern is
+   the wrong shape: "Role" values are long enough to collide with the key.
+   It becomes a proper two-column table instead — keys in a narrow rail,
+   values left-aligned and free to wrap. The hairlines stay, so it still
+   reads as the same tabular object. */
+@media (max-width: 1000px) {
+  .project-head {
+    padding-top: 60px;
+    padding-bottom: 56px;
+  }
+  .project-head__text,
+  .meta {
+    grid-column: 1 / -1;
+  }
+  .meta {
+    margin-top: 44px;
+  }
+  .meta__row {
+    display: grid;
+    grid-template-columns: minmax(5.5rem, 22%) 1fr;
+    gap: var(--gutter);
+    align-items: baseline;
+  }
+  .meta__val {
+    text-align: left;
+    max-width: 46ch;
+  }
+}
+
+@media (max-width: 640px) {
+  .project-head {
+    padding-top: 44px;
+    padding-bottom: 44px;
+  }
+  .project-head__kicker {
+    margin-bottom: 18px;
+  }
+  .project-head__subhead {
+    margin-top: 18px;
+    max-width: none;
+  }
+  .meta {
+    margin-top: 34px;
+  }
+  .meta__row {
+    grid-template-columns: minmax(4.5rem, 30%) 1fr;
+  }
+}
+
+/* --------------------------------------------------------------- figures */
+.hero-figure {
+  background: var(--ink);
+  padding: 0 var(--margin) 80px;
+}
+.hero-figure__frame {
+  background: var(--field);
+}
+.hero-figure__frame img {
+  width: 100%;
+}
+
+.caption {
+  font: 400 0.75rem/1.5 var(--mono);
+  color: var(--mute);
+}
+
+.hero-figure + .caption {
+  display: block;
+  padding: 20px var(--margin) 0;
+}
+
+@media (max-width: 640px) {
+  .hero-figure {
+    padding-bottom: 44px;
+  }
+}
+
+/* Image groups inside a beat. `full` spans the grid, `inset` aligns with
+   the text column, `pair` sets two side by side. */
+.figs {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+.figs--full {
+  grid-column: 1 / -1;
+}
+.figs--inset {
+  grid-column: 3 / span 8;
+}
+.figs--pair {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gutter);
+  align-items: start;
+}
+
+.fig__frame {
+  background: var(--field);
+  border: 1px solid var(--rule);
+}
+.fig__frame img {
+  width: 100%;
+}
+
+/* Logo frame: artwork of very different proportions (a stacked mark next to a
+   wide lockup) is boxed to one ratio and contained, so a pair sits level.
+   Each supplied file carries its own flat ground — one light, one dark — so the
+   frame colour is set per image (`frame_bg`) and the letterboxing disappears
+   into the artwork. Absolute positioning keeps the box height coming from the
+   ratio rather than the image's intrinsic size. */
+.fig__frame--logo {
+  aspect-ratio: 4 / 3;
+  position: relative;
+  border: 0;
+}
+.fig__frame--logo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.fig figcaption {
+  padding-top: 14px;
+}
+
+/* ------------------------------------------------- click-to-enlarge images
+   Only images carrying real detail (diagrams, wireframes, annotated specs,
+   data grids) get this. The cue is a hairline square in the corner — same
+   1px rule and mono-label restraint as the rest of the system, no overlay,
+   no shadow. It sits at 55% until hover so it reads as a quiet affordance
+   rather than a button competing with the image. */
+a.fig__frame--zoom {
+  display: block;
+  position: relative;
+  cursor: zoom-in;
+}
+
+.fig__cue {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  opacity: 0.55;
+  transition: opacity 0.12s linear, background-color 0.12s linear,
+    color 0.12s linear;
+  pointer-events: none;
+}
+
+a.fig__frame--zoom:hover .fig__cue,
+a.fig__frame--zoom:focus-visible .fig__cue {
+  opacity: 1;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* On a touch screen there is no hover, so show the cue at full strength. */
+@media (hover: none) {
+  .fig__cue {
+    opacity: 0.85;
+  }
+}
+
+/* ---------------------------------------------------------- the lightbox */
+.lightbox {
+  border: 0;
+  padding: 0;
+  max-width: 100vw;
+  max-height: 100vh;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: auto;
+}
+.lightbox::backdrop {
+  background: rgba(17, 17, 17, 0.94);
+}
+.lightbox__img {
+  display: block;
+  margin: 56px auto 0;
+  max-width: calc(100% - 2 * var(--margin));
+  height: auto;
+  background: var(--field);
+}
+.lightbox__caption {
+  margin: 16px auto 56px;
+  max-width: calc(100% - 2 * var(--margin));
+  color: var(--on-dark-mute);
+}
+.lightbox__close {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 1px solid var(--on-dark-mute);
+  color: var(--on-dark);
+  font: 400 1.5rem/1 var(--sans);
+  cursor: pointer;
+}
+.lightbox__close:hover {
+  background: var(--on-dark);
+  color: var(--ink);
+}
+
+@media (max-width: 900px) {
+  .figs {
+    margin-top: 32px;
+    gap: 32px;
+  }
+  .figs--full,
+  .figs--inset,
+  .figs--pair {
+    grid-column: 1 / -1;
+  }
+  .figs--pair {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    /* Cross axis is horizontal once stacked — must stretch, or figures
+       shrink to content width (and a logo frame, whose image is absolutely
+       positioned, would collapse to zero). */
+    align-items: stretch;
+  }
+}
+
+/* ----------------------------------------------------------------- beats */
+.beat {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0 var(--gutter);
+  padding: 80px var(--margin) 0;
+}
+.beat:first-of-type {
+  padding-top: 88px;
+}
+.beat--last {
+  padding-bottom: 96px;
+}
+
+/* An image-only beat has no text to sit under, so the figures don't need the
+   gap that normally separates them from a paragraph. */
+.beat--figures .figs {
+  margin-top: 0;
+}
+
+.beat__eyebrow {
+  grid-column: 1 / span 2;
+  font: 500 var(--t-label) / 1.5 var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.beat__body {
+  grid-column: 3 / span 6;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+/* A lead beat is the opening statement — wider measure, larger type. */
+.beat__body--lead {
+  grid-column: 3 / span 7;
+}
+.beat__body--lead p {
+  font-size: var(--t-lead);
+  line-height: 1.55;
+  letter-spacing: -0.008em;
+  color: var(--ink);
+}
+
+.beat__heading {
+  font: 700 var(--t-beat) / 1.14 var(--sans);
+  letter-spacing: -0.032em;
+}
+
+.beat__body p {
+  color: var(--body);
+}
+
+.beat__link {
+  margin-top: 4px;
+  font-size: var(--t-small);
+  font-family: var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* At tablet the 2-column eyebrow rail is too narrow to hold its words, so
+   the eyebrow becomes a label sitting above the text at full width. The
+   reading measure is capped so body copy never runs the full viewport. */
+@media (max-width: 900px) {
+  .beat {
+    padding-top: 56px;
+    row-gap: 14px;
+  }
+  .beat:first-of-type {
+    padding-top: 56px;
+  }
+  .beat--last {
+    padding-bottom: 60px;
+  }
+  .beat__eyebrow {
+    grid-column: 1 / -1;
+  }
+  .beat__body,
+  .beat__body--lead {
+    grid-column: 1 / -1;
+    max-width: 68ch;
+  }
+}
+
+@media (max-width: 640px) {
+  .beat {
+    padding-top: 44px;
+  }
+  .beat:first-of-type {
+    padding-top: 44px;
+  }
+}
+
+/* --------------------------------------------------------- section break */
+.section-break {
+  padding: 88px var(--margin) 0;
+}
+.section-break__inner {
+  grid-column: 1 / -1;
+  padding-bottom: 36px;
+  border-bottom: 8px solid var(--ink);
+}
+.section-break__kicker {
+  display: block;
+  margin-bottom: 20px;
+  font: 500 var(--t-label) / 1 var(--mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.section-break__heading {
+  font: 700 var(--t-section) / 0.98 var(--sans);
+  letter-spacing: -0.045em;
+}
+
+@media (max-width: 900px) {
+  .section-break {
+    padding-top: 60px;
+  }
+  .section-break__inner {
+    padding-bottom: 24px;
+    border-bottom-width: 6px;
+  }
+}
+
+/* --------------------------------------------------------------- outcome */
+.outcome {
+  margin-top: 88px;
+  padding: 56px var(--margin);
+  background: var(--accent);
+  color: #ffffff;
+}
+.outcome__label {
+  grid-column: 1 / span 2;
+  font: 500 var(--t-label) / 1.5 var(--mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.outcome__text {
+  grid-column: 3 / span 8;
+  font: 600 var(--t-beat) / 1.28 var(--sans);
+  letter-spacing: -0.028em;
+}
+
+@media (max-width: 900px) {
+  .outcome {
+    margin-top: 60px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    row-gap: 14px;
+  }
+  .outcome__label,
+  .outcome__text {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------------------------------------------------------- next project */
+.next-project {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+  align-items: center;
+  padding: 48px var(--margin);
+  margin-top: 88px;
+  border-top: 2px solid var(--ink);
+  color: var(--ink);
+}
+.next-project__label {
+  grid-column: 1 / span 3;
+  font: 500 var(--t-label) / 1 var(--mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.next-project__title {
+  grid-column: 4 / span 7;
+  font: 700 clamp(1.75rem, 3vw, 2.5rem) / 1.05 var(--sans);
+  letter-spacing: -0.038em;
+}
+.next-project__arrow {
+  grid-column: 12 / span 1;
+  text-align: right;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1;
+  color: var(--accent);
+}
+.next-project:hover .next-project__title {
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .next-project {
+    margin-top: 60px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    row-gap: 10px;
+  }
+  .next-project__label {
+    grid-column: 1 / -1;
+  }
+  .next-project__title {
+    grid-column: 1 / span 10;
+  }
+  .next-project__arrow {
+    grid-column: 11 / -1;
+  }
+}
+
+/* ---------------------------------------------------------------- résumé */
+.resume-head {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+  align-items: end;
+  padding: 88px var(--margin) 40px;
+}
+.resume-head__title {
+  grid-column: 1 / span 7;
+  font: 700 var(--t-page) / 0.92 var(--sans);
+  letter-spacing: -0.052em;
+}
+.resume-head__action {
+  grid-column: 9 / span 4;
+  display: flex;
+  justify-content: flex-end;
+}
+.resume-head__rule {
+  grid-column: 1 / -1;
+  margin-top: 36px;
+  height: 8px;
+  background: var(--accent);
+}
+
+/* Outline by default; the filled state is held back for hover, so the button
+   reads as a rule-drawn object at rest like everything else in the system.
+   Padding is 2px lighter than the border-free version so the box stays the
+   same size. */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 24px;
+  background: transparent;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  font: 500 0.8125rem/1 var(--sans);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.button span {
+  color: var(--accent);
+}
+.button:hover {
+  background: var(--ink);
+  color: var(--on-dark);
+}
+.button:hover span {
+  color: var(--accent-bright);
+}
+
+@media (max-width: 760px) {
+  .resume-head {
+    padding-top: 56px;
+    row-gap: 24px;
+  }
+  .resume-head__title,
+  .resume-head__action {
+    grid-column: 1 / -1;
+  }
+  .resume-head__action {
+    justify-content: flex-start;
+  }
+  .resume-head__rule {
+    margin-top: 20px;
+    height: 6px;
+  }
+}
+
+/* Standfirst under the title rule. No rail label, so it aligns to column 1
+   like the page title above it; lead size does the emphasis rather than
+   colour, since red is reserved elsewhere in the system. */
+.resume-lead {
+  padding: 40px var(--margin) 0;
+  font-size: var(--t-lead);
+  line-height: 1.45;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  /* border-box (the global default) — cap includes the page margins so the
+     measure stays sane if this line ever gets longer. */
+  max-width: calc(46ch + var(--margin) * 2);
+}
+
+@media (max-width: 760px) {
+  .resume-lead {
+    padding-top: 28px;
+  }
+}
+
+/* Résumé sections share one shape: a heading in the left rail, content in
+   the right. Below 760 the rail becomes a heading above its content. */
+.resume-section {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+  padding: 48px var(--margin) 0;
+}
+.resume-section__title {
+  grid-column: 1 / span 2;
+  font: 700 1.375rem/1.1 var(--sans);
+  letter-spacing: -0.026em;
+}
+.resume-section__body {
+  grid-column: 3 / span 9;
+  display: flex;
+  flex-direction: column;
+}
+
+.job {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  gap: var(--gutter);
+  border-top: 1px solid var(--rule);
+  padding: 24px 0 36px;
+}
+.job:first-child {
+  border-top: 2px solid var(--ink);
+}
+.job__when {
+  font: 400 0.8125rem/1.6 var(--mono);
+  color: var(--mute);
+}
+.job__main {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.job__title {
+  font: 700 1.625rem/1.16 var(--sans);
+  letter-spacing: -0.028em;
+}
+.job__main p {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--body);
+}
+.job__bullets {
+  margin-top: 4px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--body-soft);
+}
+
+@media (max-width: 760px) {
+  .resume-section {
+    padding-top: 36px;
+    row-gap: 20px;
+  }
+  .resume-section__title,
+  .resume-section__body {
+    grid-column: 1 / -1;
+  }
+  .job {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-bottom: 28px;
+  }
+  .job__title {
+    font-size: 1.375rem;
+  }
+}
+
+/* Testimonials — given real presence as full-bleed bands, one dark, one
+   light with an accent rule, rather than indented italics. */
+.testimonials {
+  padding: 32px var(--margin) 88px;
+  display: flex;
+  flex-direction: column;
+}
+.testimonial {
+  padding: 56px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.testimonial--dark {
+  background: var(--ink);
+  color: var(--on-dark);
+}
+.testimonial--light {
+  background: var(--field);
+  color: var(--ink);
+  border-top: 8px solid var(--accent);
+}
+.testimonial__quote {
+  font: 400 var(--t-quote) / 1.28 var(--sans);
+  letter-spacing: -0.028em;
+}
+.testimonial--dark .testimonial__quote mark {
+  background: none;
+  color: var(--accent-bright);
+}
+.testimonial--light .testimonial__quote mark {
+  background: none;
+  color: var(--accent);
+}
+.testimonial__credit {
+  font-size: var(--t-small);
+  line-height: 1.6;
+}
+.testimonial--dark .testimonial__credit {
+  color: var(--on-dark-mute);
+}
+.testimonial--light .testimonial__credit {
+  color: var(--mute);
+}
+.testimonial__credit b {
+  font-weight: 600;
+}
+.testimonial--dark .testimonial__credit b {
+  color: var(--on-dark);
+}
+.testimonial--light .testimonial__credit b {
+  color: var(--ink);
+}
+
+@media (max-width: 900px) {
+  .testimonial {
+    padding: 36px 28px;
+    gap: 18px;
+  }
+}
+@media (max-width: 640px) {
+  .testimonials {
+    padding-bottom: 56px;
+  }
+  .testimonial {
+    padding: 28px 20px;
+  }
+}
+
+/* The Skills / Education / Writing / Contact blocks: paired rail + content,
+   two pairs per row on desktop, one per row at tablet, stacked at mobile. */
+.resume-meta {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+  padding: 0 var(--margin);
+}
+.resume-meta__title {
+  font: 700 1.375rem/1.1 var(--sans);
+  letter-spacing: -0.026em;
+  padding-top: 24px;
+  border-top: 2px solid var(--ink);
+}
+.resume-meta__body {
+  padding-top: 24px;
+  border-top: 2px solid var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--body);
+}
+.resume-meta__body b {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.col-1-2 {
+  grid-column: 1 / span 2;
+}
+.col-3-4 {
+  grid-column: 3 / span 4;
+}
+.col-3-6 {
+  grid-column: 3 / span 6;
+}
+.col-8-2 {
+  grid-column: 8 / span 2;
+}
+.col-10-3 {
+  grid-column: 10 / span 3;
+}
+
+.resume-meta--writing {
+  padding-top: 56px;
+  padding-bottom: 96px;
+}
+
+.link-list {
+  display: flex;
+  flex-direction: column;
+}
+.link-list a {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gutter);
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.link-list a:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+.link-list a:hover {
+  color: var(--accent);
+}
+.link-list__source {
+  color: var(--mute);
+  font: 400 0.8125rem/1.6 var(--mono);
+  white-space: nowrap;
+}
+
+@media (max-width: 1000px) {
+  .col-3-4,
+  .col-3-6,
+  .col-10-3 {
+    grid-column: 3 / span 10;
+  }
+  .col-1-2,
+  .col-8-2 {
+    grid-column: 1 / span 2;
+  }
+}
+
+@media (max-width: 760px) {
+  .col-1-2,
+  .col-3-4,
+  .col-3-6,
+  .col-8-2,
+  .col-10-3 {
+    grid-column: 1 / -1;
+  }
+  .resume-meta {
+    row-gap: 0;
+  }
+  .resume-meta__title {
+    padding-top: 28px;
+  }
+  .resume-meta__body {
+    padding-top: 16px;
+    border-top: 0;
+  }
+  .resume-meta--writing {
+    padding-top: 28px;
+    padding-bottom: 56px;
+  }
+  .link-list a {
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+
+/* ------------------------------------------------------------------- 404 */
+.notfound {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+  padding: 120px var(--margin) 140px;
+}
+.notfound__head {
+  grid-column: 1 / span 6;
+}
+.notfound__code {
+  font: 700 clamp(6rem, 15vw, 13.75rem) / 0.78 var(--sans);
+  letter-spacing: -0.06em;
+  color: var(--accent);
+}
+.notfound__body {
+  grid-column: 8 / span 4;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 64px;
+}
+.notfound__body p {
+  font: 400 clamp(1.125rem, 1.7vw, 1.5rem) / 1.45 var(--sans);
+  letter-spacing: -0.018em;
+  color: var(--ink);
+}
+
+.stack-links {
+  display: flex;
+  flex-direction: column;
+}
+.stack-links a {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+  border-top: 1px solid var(--rule);
+  font: 600 1.0625rem/1.3 var(--sans);
+  color: var(--ink);
+}
+.stack-links a:first-child {
+  border-top: 2px solid var(--ink);
+}
+.stack-links a:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+.stack-links span {
+  color: var(--accent);
+}
+.stack-links a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .notfound {
+    padding: 64px var(--margin) 80px;
+  }
+  .notfound__head,
+  .notfound__body {
+    grid-column: 1 / -1;
+  }
+  .notfound__body {
+    padding-top: 32px;
+    gap: 24px;
+  }
+}
+
+/* ---------------------------------------------------------------- footer */
+.site-footer {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+  padding: 44px var(--margin);
+  background: var(--ink);
+  color: var(--on-dark);
+  font-size: var(--t-small);
+  line-height: 1.6;
+}
+.site-footer__id {
+  grid-column: 1 / span 4;
+  color: var(--on-dark-mute);
+}
+.site-footer__nav {
+  grid-column: 6 / span 3;
+}
+.site-footer__social {
+  grid-column: 9 / span 2;
+}
+.site-footer__contact {
+  grid-column: 11 / span 2;
+  text-align: right;
+}
+.site-footer ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.site-footer a {
+  color: var(--on-dark);
+}
+.site-footer a:hover {
+  color: var(--accent-bright);
+}
+.site-footer__contact span {
+  color: var(--on-dark-mute);
+}
+
+@media (max-width: 900px) {
+  .site-footer__id {
+    grid-column: 1 / -1;
+  }
+  .site-footer__nav {
+    grid-column: 1 / span 4;
+  }
+  .site-footer__social {
+    grid-column: 5 / span 4;
+  }
+  .site-footer__contact {
+    grid-column: 9 / span 4;
+    text-align: left;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-footer {
+    row-gap: 28px;
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+  .site-footer__id,
+  .site-footer__nav,
+  .site-footer__social,
+  .site-footer__contact {
+    grid-column: 1 / -1;
+  }
+}
+
+/* --------------------------------------------------------------- motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

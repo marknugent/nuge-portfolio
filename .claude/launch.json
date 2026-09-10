@@ -1,0 +1,15 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "node_modules/.bin/eleventy",
+        "--serve",
+        "--port=8080"
+      ],
+      "port": 8080
+    }
+  ]
+}

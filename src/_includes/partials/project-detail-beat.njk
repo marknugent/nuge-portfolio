@@ -1,0 +1,28 @@
+{# One beat: eyebrow rail, text column, then up to two image groups.
+   Any of the three parts may be omitted. A beat with no eyebrow and no text
+   is an image-only beat — it carries the pictures without inventing prose.
+   `figures.njk` reads `images` / `layout` from context, so both are set
+   before each include. #}
+{% set hasText = beat.heading or beat.text or beat.link %}
+<section class="beat{% if isLast %} beat--last{% endif %}{% if not hasText and not beat.eyebrow %} beat--figures{% endif %}">
+  {% if beat.eyebrow %}<p class="beat__eyebrow">{{ beat.eyebrow }}</p>{% endif %}
+  {% if hasText %}
+  <div class="beat__body{% if beat.lead %} beat__body--lead{% endif %}">
+    {% if beat.heading %}<h2 class="beat__heading">{{ beat.heading | safe }}</h2>{% endif %}
+    {% for para in beat.text %}<p>{{ para | safe }}</p>{% endfor %}
+    {% if beat.link %}
+      <a class="beat__link" href="{{ beat.link.url }}">{{ beat.link.label }} &rarr;</a>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% set images = beat.images %}
+  {% set layout = beat.layout %}
+  {% include "partials/figures.njk" %}
+
+  {% if beat.images2 %}
+    {% set images = beat.images2 %}
+    {% set layout = beat.layout2 %}
+    {% include "partials/figures.njk" %}
+  {% endif %}
+</section>

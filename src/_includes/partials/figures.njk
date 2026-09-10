@@ -1,0 +1,32 @@
+{# One image group. `layout` is full | inset | pair.
+   An image marked `zoom: true` is wrapped in a link to the full-resolution
+   file, so it works with no JavaScript; zoom.js upgrades that to a lightbox. #}
+{% if images and images.length %}
+<div class="figs figs--{{ layout or 'full' }}">
+  {% for image in images %}
+  <figure class="fig">
+    {% set frameClass = "fig__frame" + (" fig__frame--" + image.frame if image.frame else "") %}
+    {% if image.zoom %}
+    <a class="{{ frameClass }} fig__frame--zoom"
+       href="{{ image.src }}" target="_blank" rel="noopener"
+       aria-label="Enlarge: {{ image.alt }}"
+       {% if image.frame_bg %}style="background: {{ image.frame_bg }}"{% endif %}>
+      <img src="{{ image.src }}" alt="{{ image.alt }}" loading="lazy" decoding="async">
+      <span class="fig__cue" aria-hidden="true">
+        <svg viewBox="0 0 16 16" width="13" height="13" fill="none"
+             stroke="currentColor" stroke-width="1.5">
+          <circle cx="7" cy="7" r="4.6"/><path d="M10.4 10.4 14.5 14.5"/>
+          <path d="M7 5.1v3.8M5.1 7h3.8"/>
+        </svg>
+      </span>
+    </a>
+    {% else %}
+    <div class="{{ frameClass }}"{% if image.frame_bg %} style="background: {{ image.frame_bg }}"{% endif %}>
+      <img src="{{ image.src }}" alt="{{ image.alt }}" loading="lazy" decoding="async">
+    </div>
+    {% endif %}
+    {% if image.caption %}<figcaption class="caption">{{ image.caption }}</figcaption>{% endif %}
+  </figure>
+  {% endfor %}
+</div>
+{% endif %}

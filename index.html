@@ -21,13 +21,100 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="../styles/css/main.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      .portfolio-slideshow {
+        width: 100%;
+        height: 510px;
+        position: relative;
+        overflow: hidden;
+        display: block;
+      }
 
+      .home-main-secondcol {
+        background-color: transparent!important;
+      }
+      .portfolio-slideshow a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+      }
+
+      .portfolio-slideshow__slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .portfolio-slideshow__slide.is-active {
+        opacity: 1;
+      }
+
+      /* The actual image layer */
+      .portfolio-slideshow__slide-img {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+      }
+
+      /* Ken Burns — different direction per slide */
+      .portfolio-slideshow__slide:nth-child(1) .portfolio-slideshow__slide-img { animation: kb1 8s ease-in-out infinite alternate; }
+      .portfolio-slideshow__slide:nth-child(2) .portfolio-slideshow__slide-img { animation: kb2 8s ease-in-out infinite alternate; }
+      .portfolio-slideshow__slide:nth-child(3) .portfolio-slideshow__slide-img { animation: kb3 8s ease-in-out infinite alternate; }
+      .portfolio-slideshow__slide:nth-child(4) .portfolio-slideshow__slide-img { animation: kb4 8s ease-in-out infinite alternate; }
+      .portfolio-slideshow__slide:nth-child(5) .portfolio-slideshow__slide-img { animation: kb5 8s ease-in-out infinite alternate; }
+      .portfolio-slideshow__slide:nth-child(6) .portfolio-slideshow__slide-img { animation: kb6 8s ease-in-out infinite alternate; }
+      .portfolio-slideshow__slide:nth-child(7) .portfolio-slideshow__slide-img { animation: kb7 8s ease-in-out infinite alternate; }
+      .portfolio-slideshow__slide:nth-child(8) .portfolio-slideshow__slide-img { animation: kb1 8s ease-in-out infinite alternate; }
+
+      @keyframes kb1 { from { transform: scale(1)    translate(0, 0);     } to { transform: scale(1.06) translate(-1%, -1%); } }
+      @keyframes kb2 { from { transform: scale(1.05) translate(1%, 0);    } to { transform: scale(1)    translate(0, 1%);    } }
+      @keyframes kb3 { from { transform: scale(1)    translate(-1%, 1%);  } to { transform: scale(1.06) translate(1%, 0);    } }
+      @keyframes kb4 { from { transform: scale(1.05) translate(0, -1%);   } to { transform: scale(1)    translate(-1%, 0);   } }
+      @keyframes kb5 { from { transform: scale(1)    translate(1%, 1%);   } to { transform: scale(1.06) translate(0, -1%);  } }
+      @keyframes kb6 { from { transform: scale(1.04) translate(-1%, -1%); } to { transform: scale(1)    translate(1%, 1%);   } }
+      @keyframes kb7 { from { transform: scale(1)    translate(0, 1%);    } to { transform: scale(1.06) translate(-1%, -1%);} }
+
+      /* The color tint layer — sits on top of the image */
+      .portfolio-slideshow__slide-tint {
+        position: absolute;
+        inset: 0;
+        mix-blend-mode: multiply;
+        opacity: 0.72; /* adjust 0–1 to taste */
+      }
+
+      /* One tint color per slide */
+      .portfolio-slideshow__slide:nth-child(1) .portfolio-slideshow__slide-tint { background: #6b9ab8; }
+      /* .portfolio-slideshow__slide:nth-child(2) .portfolio-slideshow__slide-tint { background: #c8763a; } */
+      .portfolio-slideshow__slide:nth-child(3) .portfolio-slideshow__slide-tint { background: #4a9e8e; }
+      .portfolio-slideshow__slide:nth-child(4) .portfolio-slideshow__slide-tint { background: #6b9ab8; }
+      .portfolio-slideshow__slide:nth-child(5) .portfolio-slideshow__slide-tint { background: #d94060; }
+      .portfolio-slideshow__slide:nth-child(6) .portfolio-slideshow__slide-tint { background: #5a9e6a; }
+      .portfolio-slideshow__slide:nth-child(7) .portfolio-slideshow__slide-tint { background: #d46050; }
+      .portfolio-slideshow__slide:nth-child(8) .portfolio-slideshow__slide-tint { background: #5a6e9e; }
+
+      /* Progress bar */
+      .portfolio-slideshow__progress {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        background: rgba(255, 255, 255, 0.6);
+        width: 0%;
+        transition: width linear;
+        z-index: 10;
+        pointer-events: none;
+      }
+    </style>
 
     <meta charset=utf-8>
     <title>Mark Nugent, Product Designer</title>
     <meta name=viewport content="width=device-width,initial-scale=1">
-    <link href="../styles/css/main.css" type="text/css" rel="stylesheet">
+    
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -128,23 +215,116 @@
           <div class="home-letter">
 
             <p>
-            An experienced product designer, I have designed user interfaces for groundbreaking products, including web-based SaaS software and native mobile apps.
+            I'm a product designer specializing in technical and complex software, including web-based SaaS and native mobile apps. I've spent my career working in specialized domains where success depends on an understanding of the user's unique needs. 
             </p>
-            <p>I excel in crafting exceptional digital experiences for specialized or technical domains. My passion lies in understanding users&rsquo; unique needs in order to create intuitive, user-centered solutions. 
-              </p> 
+          
             <p>For more about my work and experience, take a look at my <a href="/portfolio/">portfolio</a> (for credentials, <SCRIPT LANGUAGE="JavaScript">user = 'mark';site = 'nuge.co';document.write('<a href=\"mailto:' + user + '@' + site + '\">');document.write('email me</a>');</SCRIPT>).</p>
           </div><!-- .home-letter -->
         </div><!-- .home-main--firstcol" -->
-        <div class="home-main--secondcol">
+        <div class="home-main--secondcol" style="background-color: transparent !important">
           <div class="animation-overlay">
           </div>
-          <div id="animation_container" ><!-- orig dimensions 520 x 500 -->
+          <!--div id="animation_container" ><!-- orig dimensions 520 x 500 -- >
             <a href="/portfolio/">
         		<canvas id="canvas"  style=" background-color:rgba(216, 6, 10, 0);"></canvas>
           		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; display: block;">
           		</div>
             </a>
-        	</div>
+        	</div-->
+          <div class="portfolio-slideshow" id="portfolio-slideshow">
+            <a href="/portfolio/">
+
+              <div class="portfolio-slideshow__slide is-active">
+                <div class="portfolio-slideshow__slide-img" style="background-image: url('/images/port-page-img/rom-filtercd-zoom@2x.png')"></div>
+                <div class="portfolio-slideshow__slide-tint"></div>
+              </div>
+
+              <!--div class="portfolio-slideshow__slide">
+                <div class="portfolio-slideshow__slide-img" style="background-image: url('/images/port-page-img/calls-web-2-zoom.jpg')"></div>
+                <div class="portfolio-slideshow__slide-tint"></div>
+              </div-->
+
+              <div class="portfolio-slideshow__slide">
+                <div class="portfolio-slideshow__slide-img" style="background-image: url('/images/port-page-img/SChD-area-zoom@2x.png')"></div>
+                <div class="portfolio-slideshow__slide-tint"></div>
+              </div>
+
+              <div class="portfolio-slideshow__slide">
+                <div class="portfolio-slideshow__slide-img" style="background-image: url('/images/port-page-img/calls-web-0@2x.png')"></div>
+                <div class="portfolio-slideshow__slide-tint"></div>
+              </div>
+
+              <div class="portfolio-slideshow__slide">
+                <div class="portfolio-slideshow__slide-img" style="background-image: url('/images/port-page-img/china-1-zoom2.png')"></div>
+                <div class="portfolio-slideshow__slide-tint"></div>
+              </div>
+
+              <div class="portfolio-slideshow__slide">
+                <div class="portfolio-slideshow__slide-img" style="background-image: url('/images/port-page-img/SChD-zoom@2x.png')"></div>
+                <div class="portfolio-slideshow__slide-tint"></div>
+              </div>
+
+              <div class="portfolio-slideshow__slide">
+                <div class="portfolio-slideshow__slide-img" style="background-image: url('/images/port-page-img/cda-designview-zoom@2x.png')"></div>
+                <div class="portfolio-slideshow__slide-tint"></div>
+              </div>
+
+              <div class="portfolio-slideshow__slide">
+                <div class="portfolio-slideshow__slide-img" style="background-image: url('/images/port-page-img/newSCD_@2x.png')"></div>
+                <div class="portfolio-slideshow__slide-tint"></div>
+              </div>
+
+              <div class="portfolio-slideshow__progress" id="slideshow-progress"></div>
+
+            </a>
+          </div>
+          <script>
+          (function () {
+            var DURATION = 4000; // ms per slide — adjust to taste
+
+            var slides = document.querySelectorAll('.portfolio-slideshow__slide');
+            var progress = document.getElementById('slideshow-progress');
+            var current = 0;
+            var timer;
+
+            function goTo(index) {
+              slides[current].classList.remove('is-active');
+              current = (index + slides.length) % slides.length;
+              slides[current].classList.add('is-active');
+              animateProgress();
+            }
+
+            function animateProgress() {
+              progress.style.transition = 'none';
+              progress.style.width = '0%';
+              setTimeout(function () {
+                progress.style.transition = 'width ' + DURATION + 'ms linear';
+                progress.style.width = '100%';
+              }, 20);
+            }
+
+            function start() {
+              animateProgress();
+              timer = setInterval(function () {
+                goTo(current + 1);
+              }, DURATION);
+            }
+
+            // Pause on hover
+            var container = document.getElementById('portfolio-slideshow');
+            container.addEventListener('mouseenter', function () {
+              clearInterval(timer);
+              progress.style.transition = 'none';
+            });
+            container.addEventListener('mouseleave', function () {
+              goTo(current + 1);
+              timer = setInterval(function () { goTo(current + 1); }, DURATION);
+            });
+
+            start();
+          })();
+          </script>
+
         </div><!-- .home-main--secondcol" -->
 
       </div><!-- .home-main -->

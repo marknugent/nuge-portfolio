@@ -1,0 +1,12 @@
+{# Tier 2: a quieter card in a three-up grid. Same parts as the Tier 1 row,
+   at a smaller scale — which is what the Tier 1 row collapses to on mobile. #}
+<a class="work-card" href="/portfolio/{{ project.slug }}/">
+  <div class="work-card__media">
+    <img src="{{ project.card_image.src }}" alt="{{ project.card_image.alt }}"
+         loading="lazy" decoding="async"
+         style="object-position: {{ project.card_image.position or 'top center' }}">
+  </div>
+  <span class="work-card__category">{{ project.category }}</span>
+  <h3 class="work-card__title">{{ project.title | safe }}</h3>
+  <p class="work-card__desc">{{ project.list_description }}</p>
+</a>

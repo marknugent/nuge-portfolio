@@ -1,0 +1,11 @@
+<header class="masthead">
+  <div class="masthead__name">
+    <a href="/">{{ site.name }}</a>
+    <span class="masthead__role">{{ site.title }}</span>
+  </div>
+  <nav class="masthead__nav" aria-label="Main">
+    <a href="/"{% if nav == "work" %} aria-current="page"{% endif %}>Work</a>
+    <a href="/resume/"{% if nav == "resume" %} aria-current="page"{% endif %}>Résumé</a>
+    <a class="is-contact" href="mailto:{{ site.email }}">{{ site.email }}</a>
+  </nav>
+</header>

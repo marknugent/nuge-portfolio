@@ -1,5 +1,154 @@
+# Mark Nugent — nuge.co
+#
+# Intent: shareable by link, absent from search results, and off-limits to AI
+# training crawlers.
+#
+# Note the deliberate asymmetry below. Search engines are ALLOWED to crawl.
+# That looks backwards, but it is the only way to stay out of results: the
+# `X-Robots-Tag: noindex` header this site sends on every response (see
+# .htaccess) can only be obeyed by a crawler that is permitted to fetch the
+# page and read it. A robots.txt `Disallow` blocks the fetch, so the crawler
+# never sees the noindex — and Google may then list the bare URL anyway if it
+# finds a link to it somewhere else. Allow the fetch, and the noindex applies:
+# the page is dropped entirely.
+#
+# AI and training crawlers get the opposite treatment: they are blocked
+# outright, because the goal there is no fetching at all, not de-indexing.
+
+# --- Search engines: allowed to crawl so the noindex header is honoured ----
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Must precede the Applebot group: "Applebot" is a prefix of this token, and a
+# first-match parser would otherwise apply the Allow rule below to it.
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Applebot
+Allow: /
+
+# --- Everything not named above -------------------------------------------
 User-agent: *
 Disallow: /
 
-User-agent: OpenAI
-Allow: /
+# --- AI / LLM crawlers and training corpora: blocked outright --------------
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: OAI-SearchBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: ClaudeBot-User
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: Meta-ExternalFetcher
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Perplexity-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: cohere-training-data-crawler
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: omgili
+Disallow: /
+
+User-agent: omgilibot
+Disallow: /
+
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: YouBot
+Disallow: /
+
+User-agent: Timpibot
+Disallow: /
+
+User-agent: Webzio-Extended
+Disallow: /
+
+User-agent: AI2Bot
+Disallow: /
+
+User-agent: Ai2Bot-Dolma
+Disallow: /
+
+User-agent: PanguBot
+Disallow: /
+
+User-agent: Kangaroo Bot
+Disallow: /
+
+# --- SEO scrapers and archives --------------------------------------------
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: Scrapy
+Disallow: /
+
+User-agent: ia_archiver
+Disallow: /
+
+User-agent: archive.org_bot
+Disallow: /

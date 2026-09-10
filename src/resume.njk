@@ -1,0 +1,79 @@
+---
+layout: layouts/base.njk
+title: Résumé — Mark Nugent
+description: Experience, testimonials, skills and education for Mark Nugent, product designer.
+nav: resume
+permalink: /resume/index.html
+---
+<header class="resume-head">
+  <h1 class="resume-head__title">Résumé</h1>
+  <div class="resume-head__action">
+    <a class="button" href="{{ site.resumePdf }}">Download PDF <span aria-hidden="true">&darr;</span></a>
+  </div>
+  <div class="resume-head__rule" aria-hidden="true"></div>
+</header>
+
+{% if resume.availability %}
+<p class="resume-lead">{{ resume.availability }}</p>
+{% endif %}
+
+<section class="resume-section">
+  <h2 class="resume-section__title">Experience</h2>
+  <div class="resume-section__body">
+    {% for job in resume.experience %}
+    <article class="job">
+      <p class="job__when">{{ job.dates }}<br>{{ job.place }}</p>
+      <div class="job__main">
+        <h3 class="job__title">{{ job.title | safe }}</h3>
+        {% for para in job.summary %}<p>{{ para | safe }}</p>{% endfor %}
+        {% if job.bullets.length %}
+        <ul class="job__bullets">
+          {% for bullet in job.bullets %}<li>{{ bullet | safe }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="testimonials" aria-label="Testimonials">
+  {% for t in resume.testimonials %}
+  <figure class="testimonial testimonial--{{ t.tone }}">
+    <blockquote class="testimonial__quote">{{ t.before }}<mark>{{ t.highlight }}</mark>{{ t.after }}</blockquote>
+    <figcaption class="testimonial__credit"><b>{{ t.name }}</b> — {{ t.credit | safe }}</figcaption>
+  </figure>
+  {% endfor %}
+</section>
+
+<section class="resume-meta">
+  <h2 class="resume-meta__title col-1-2">Skills</h2>
+  <div class="resume-meta__body col-3-4">
+    {% for item in resume.skills %}<p><b>{{ item.label }}</b><br>{{ item.body }}</p>{% endfor %}
+  </div>
+  <h2 class="resume-meta__title col-8-2">Education</h2>
+  <div class="resume-meta__body col-10-3">
+    {% for item in resume.education %}<p><b>{{ item.label }}</b><br>{{ item.body }}</p>{% endfor %}
+  </div>
+</section>
+
+<section class="resume-meta resume-meta--writing">
+  <h2 class="resume-meta__title col-1-2">Writing</h2>
+  <div class="resume-meta__body col-3-6">
+    <p>{{ resume.writing.intro | safe }}</p>
+    <div class="link-list">
+      {% for piece in resume.writing.pieces %}
+      <a href="{{ piece.url }}"><span>{{ piece.title }}</span><span class="link-list__source">{{ piece.source }}</span></a>
+      {% endfor %}
+    </div>
+  </div>
+  <h2 class="resume-meta__title col-8-2 visually-hidden">Contact</h2>
+  <div class="resume-meta__body col-10-3">
+    <p>
+      <b>Contact</b><br>
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a><br>
+      {{ site.phone }}<br>
+      <a href="{{ site.linkedin }}">linkedin.com/in/nugentmark</a>
+    </p>
+  </div>
+</section>

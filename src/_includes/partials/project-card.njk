@@ -1,0 +1,15 @@
+{# Tier 1: a full-width row. Text column left, large image right.
+   Below 900px it stacks with the image first — see .work-row in site.css. #}
+<a class="work-row" href="/portfolio/{{ project.slug }}/">
+  <div class="work-row__text">
+    <span class="work-row__category">{{ project.category }}</span>
+    <h3 class="work-row__title">{{ project.title | safe }}</h3>
+    <p class="work-row__desc">{{ project.list_description }}</p>
+    <p class="work-row__role">{{ project.role }}</p>
+  </div>
+  <div class="work-row__media">
+    <img src="{{ project.card_image.src }}" alt="{{ project.card_image.alt }}"
+         {% if loop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async"
+         style="object-position: {{ project.card_image.position or 'top left' }}">
+  </div>
+</a>

@@ -1,0 +1,67 @@
+---
+layout: layouts/base.njk
+nav: work
+pagination:
+  data: visibleProjects
+  size: 1
+  alias: project
+permalink: "/portfolio/{{ project.slug }}/"
+eleventyComputed:
+  title: "{{ project.title | safe }} — {{ site.name }}"
+  description: "{{ project.subhead or project.list_description }}"
+---
+{% set nextProject = visibleProjects | nextAfter(project.slug) %}
+
+<article>
+  <header class="project-head grid">
+    <div class="project-head__text">
+      <span class="project-head__kicker">{{ "Case study" if project.tier == 1 else "Project" }}</span>
+      <h1 class="project-head__title{% if project.title_scale == 'large' %} project-head__title--lg{% endif %}">{{ project.title | safe }}</h1>
+      {% if project.subhead %}<p class="project-head__subhead">{{ project.subhead }}</p>{% endif %}
+    </div>
+    {% include "partials/project-meta.njk" %}
+  </header>
+
+  {% if project.hero %}
+  <div class="hero-figure">
+    <div class="hero-figure__frame">
+      <img src="{{ project.hero.src }}" alt="{{ project.hero.alt }}" fetchpriority="high" decoding="async">
+    </div>
+  </div>
+  {% if project.hero.caption %}<p class="caption">{{ project.hero.caption }}</p>{% endif %}
+  {% endif %}
+
+  {% for beat in project.beats %}
+    {% set isLast = loop.last and not project.live_url %}
+    {% if beat.type == "section" %}
+      <div class="section-break grid"{% if beat.id %} id="{{ beat.id }}"{% endif %}>
+        <div class="section-break__inner">
+          {% if beat.kicker %}<span class="section-break__kicker">{{ beat.kicker }}</span>{% endif %}
+          <h2 class="section-break__heading">{{ beat.heading }}</h2>
+        </div>
+      </div>
+    {% elif beat.type == "outcome" %}
+      <div class="outcome grid">
+        <p class="outcome__label">Outcome</p>
+        <p class="outcome__text">{{ beat.text | safe }}</p>
+      </div>
+    {% else %}
+      {% include "partials/project-detail-beat.njk" %}
+    {% endif %}
+  {% endfor %}
+
+  {% if project.live_url %}
+  <section class="beat beat--last">
+    <p class="beat__eyebrow">Live</p>
+    <div class="beat__body">
+      <a class="beat__link" href="{{ project.live_url }}">{{ project.live_label or "View the live piece" }} &rarr;</a>
+    </div>
+  </section>
+  {% endif %}
+
+  <a class="next-project" href="/portfolio/{{ nextProject.slug }}/">
+    <span class="next-project__label">Next project</span>
+    <span class="next-project__title">{{ nextProject.title | safe }}</span>
+    <span class="next-project__arrow" aria-hidden="true">&rarr;</span>
+  </a>
+</article>

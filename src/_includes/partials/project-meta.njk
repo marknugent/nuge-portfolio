@@ -1,0 +1,16 @@
+{# Type / Company / Years / Role. Rows with no value are omitted rather than
+   left blank. Reflows to a two-column table below 1000px. #}
+<dl class="meta">
+  {% if project.type_label or project.category %}
+  <div class="meta__row"><dt class="meta__key">Type</dt><dd class="meta__val">{{ project.type_label or project.category }}</dd></div>
+  {% endif %}
+  {% if project.company %}
+  <div class="meta__row"><dt class="meta__key">Company</dt><dd class="meta__val">{{ project.company }}</dd></div>
+  {% endif %}
+  {% if project.years %}
+  <div class="meta__row"><dt class="meta__key">Years</dt><dd class="meta__val">{{ project.years }}</dd></div>
+  {% endif %}
+  {% if project.role %}
+  <div class="meta__row"><dt class="meta__key">Role</dt><dd class="meta__val">{{ project.role }}</dd></div>
+  {% endif %}
+</dl>

@@ -1,0 +1,37 @@
+---
+layout: layouts/base.njk
+title: Mark Nugent, Product Designer
+description: Product designer specializing in technical and complex software — web-based SaaS and native mobile apps.
+nav: work
+permalink: /index.html
+---
+{% set tier1 = visibleProjects | tier(1) %}
+{% set tier2 = visibleProjects | tier(2) %}
+
+<section class="hero grid">
+  <div class="hero__head">
+    <h1 class="hero__name">Mark<br>Nugent</h1>
+    <p class="hero__role">Product Designer</p>
+  </div>
+  <div class="hero__intro">
+    {% for para in site.intro %}<p>{{ para | safe }}</p>{% endfor %}
+  </div>
+</section>
+
+<h2 class="section-head">
+  <span>Selected work</span>
+  <span class="section-head__count">{{ tier1.length | countWord }} case studies</span>
+</h2>
+<div class="work-list">
+  {% for project in tier1 %}{% include "partials/project-card.njk" %}{% endfor %}
+</div>
+
+<h2 class="section-head">
+  <span>Earlier &amp; lighter work</span>
+  <span class="section-head__count">{{ tier2.length | countWord }} projects</span>
+</h2>
+<div class="work-grid-wrap">
+  <div class="work-grid">
+    {% for project in tier2 %}{% include "partials/project-card-compact.njk" %}{% endfor %}
+  </div>
+</div>

@@ -1,0 +1,15 @@
+{
+  "name": "nuge-portfolio",
+  "version": "2.0.0",
+  "description": "Mark Nugent \u2014 product design portfolio",
+  "private": true,
+  "scripts": {
+    "start": "npm run clean && eleventy --serve",
+    "build": "npm run clean && eleventy",
+    "clean": "rm -rf _site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  },
+  "type": "module"
+}
