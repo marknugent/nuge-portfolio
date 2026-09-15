@@ -456,12 +456,23 @@ p {
   padding: 44px var(--margin) 88px;
 }
 
-/* Four cards, each exactly three of the twelve columns, separated by real
-   gutters — so this grid lines up with every other block on the page. */
+/* Cards divide the twelve columns evenly and use real gutters, so this grid
+   lines up with every other block on the page: four cards = three columns
+   each, three cards = four columns each. The count comes from the data (see
+   index.njk) so removing a project can't leave an empty slot. */
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--gutter);
+}
+.work-grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.work-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.work-grid--4 {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .work-card {

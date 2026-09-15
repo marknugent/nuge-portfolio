@@ -51,7 +51,7 @@ export default [
         eyebrow: "Background",
         lead: true,
         text: [
-          "I worked on a new Cisco product for automating processes across networking domains. We called the product Cross-Domain Automation and it would later launched under the name Cisco Workflows. It lets users create workflows that chain actions across disparate networking systems using a graphical builder without writing code. I was a senior interaction designer on a small team of interaction and visual designers, working closely with product managers and engineers."
+          "I worked on a new Cisco product for automating processes across networking domains. We called the product Cross-Domain Automation and it would later launch under the name Cisco Workflows. It lets users create workflows that chain actions across disparate networking systems using a graphical builder without writing code. I was a senior interaction designer on a small team of interaction and visual designers, working closely with product managers and engineers."
         ],
         images: [
           {
@@ -90,7 +90,7 @@ export default [
         eyebrow: "Focus",
         heading: "Designing for the network operator",
         text: [
-          "My purview was on UI aimed out our network operator persona (“Tarek”), producing screens and flows for viewing, running, and monitoring workflows.",
+          "My purview was UI aimed at our network operator persona (“Tarek”), producing screens and flows for viewing, running, and monitoring workflows.",
           "I designed in Figma within Cisco's Magnetic design system and built a prototype rich enough for testers to explore freely in an unmoderated study."
         ],
         images: [

@@ -31,7 +31,7 @@ permalink: /index.html
   <span class="section-head__count">{{ tier2.length | countWord }} projects</span>
 </h2>
 <div class="work-grid-wrap">
-  <div class="work-grid">
+  <div class="work-grid work-grid--{{ tier2.length }}">
     {% for project in tier2 %}{% include "partials/project-card-compact.njk" %}{% endfor %}
   </div>
 </div>
