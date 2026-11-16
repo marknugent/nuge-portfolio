@@ -139,11 +139,11 @@ export default {
   skills: [
     {
       label: "Software",
-      body: "Sketch, Figma, Claude Code, Illustrator, Photoshop, Balsamiq, InDesign, InVision, Adobe Animate, OmniGraffle, Xcode, Visual Studio, Atom"
+      body: "Sketch, Figma (including Prototypes, Components/Variants, Variables), Claude Code, Adobe Creative Suite (Illustrator, Photoshop, Balsamiq, InDesign)"
     },
     {
       label: "Skills",
-      body: "Prototyping, wireframes, visual design, user research. HTML/CSS, JavaScript, Styled Components, Sass, BEM. Writing, copy-editing, proofreading."
+      body: "Prototyping, wireframes, visual design, user research. HTML, CSS (including Sass; BEM), JavaScript, Styled Components, Writing, copy-editing, proofreading."
     }
   ],
 
