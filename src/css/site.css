@@ -99,6 +99,20 @@ a {
 a:hover {
   color: var(--ink);
 }
+/* Links inside running text get an underline so color is never the only
+   cue (the red reads close to body text for red/green color-blind readers).
+   Scoped to prose containers so nav, cards and button links are untouched. */
+:where(.beat__body, .outcome__text, .job__main, .resume-meta__body) :where(p, li) > a,
+.outcome__text > a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+:where(.beat__body, .outcome__text, .job__main, .resume-meta__body) :where(p, li) > a:hover,
+.outcome__text > a:hover {
+  text-decoration-color: currentColor;
+}
 
 h1,
 h2,
