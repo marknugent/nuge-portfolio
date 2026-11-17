@@ -138,12 +138,15 @@ export default {
 
   skills: [
     {
+      label: "Design",
+      body: "Prototyping, wireframing, visual design, user research, accessibility, print layout & design"
+    },    {
       label: "Software",
-      body: "Sketch, Figma (including Prototypes, Components/Variants, Variables), Claude Code, Adobe Creative Suite (Illustrator, Photoshop, Balsamiq, InDesign)"
+      body: "Figma (including Figma Agent, prototypes, Components/Variants, variables), Claude Code, Adobe Creative Suite (Illustrator, Photoshop, InDesign), Sketch"
     },
     {
-      label: "Skills",
-      body: "Prototyping, wireframes, visual design, user research. HTML, CSS (including Sass; BEM), JavaScript, Styled Components, Writing, copy-editing, proofreading."
+      label: "Code",
+      body: "HTML, CSS (Sass, BEM), JavaScript, Styled Components, HTML email"
     }
   ],
 
