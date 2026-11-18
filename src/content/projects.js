@@ -36,14 +36,14 @@ export default [
       "A no-code workflow tool that lets Cisco customers automate tasks across networking domains.",
     subhead: "No-code SaaS workflow tool for networking applications",
     card_image: {
-      src: `${IMG}cda-workspace-zoom@2x.png`,
-      alt: "Cisco Cross-Domain Automation workspace",
+      src: `${IMG}cda-designview-zoom@2x.png`,
+      alt: "Cisco Cross-Domain Automation design view of a workflow run",
       position: "top left"
     },
     hero: {
-      src: `${IMG}cda-workspace-zoom@2x.png`,
-      alt: "The Cross-Domain Automation workspace",
-      caption: "The workflow workspace"
+      src: `${IMG}cda-designview-zoom@2x.png`,
+      alt: "Design-view overlay on the workflow's graphical representation",
+      caption: "Design view of a workflow run"
     },
     beats: [
       {
@@ -122,6 +122,12 @@ export default [
             alt: "Design-view overlay on the workflow's graphical representation",
             zoom: true,
             caption: "Design view, overlaid on the workflow graph"
+          },
+          {
+            src: `${IMG}cda-workspace-zoom@2x.png`,
+            alt: "The Cross-Domain Automation workspace",
+            zoom: true,
+            caption: "The workflow workspace"
           }
         ],
         layout: "full"
