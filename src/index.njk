@@ -4,14 +4,20 @@ title: Mark Nugent, Product Designer
 description: Product designer specializing in technical and complex software — web-based SaaS and native mobile apps.
 nav: work
 permalink: /index.html
+heroArt: true
 ---
 {% set tier1 = visibleProjects | tier(1) %}
 {% set tier2 = visibleProjects | tier(2) %}
 
 <section class="hero grid">
+  <div class="hero-art" data-hold="5400" data-fade="1600" aria-hidden="true">
+    <div class="hero-art__slide hero-art__slide--phones">{% include "hero-art/art-phones.svg" %}</div>
+    <div class="hero-art__slide hero-art__slide--workflow-editor">{% include "hero-art/art-workflow-editor.svg" %}</div>
+    <div class="hero-art__slide hero-art__slide--state-machine">{% include "hero-art/art-state-machine.svg" %}</div>
+    <div class="hero-art__slide hero-art__slide--crm-search">{% include "hero-art/art-crm-search.svg" %}</div>
+  </div>
   <div class="hero__head">
-    <h1 class="hero__name">Mark<br>Nugent</h1>
-    <p class="hero__role">Product Designer</p>
+    <h1><span class="hero__name">{{ site.name }}</span> <span class="hero__role">{{ site.title }}</span></h1>
   </div>
   <div class="hero__intro">
     {% for para in site.intro %}<p>{{ para | safe }}</p>{% endfor %}

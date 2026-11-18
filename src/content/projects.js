@@ -611,8 +611,13 @@ export default [
       alt: "China's Kleptocracy infographic",
       position: "center top"
     },
-    // No hero: china-1 and china-2 share the infographic's own title block, so
-    // a hero here would repeat it immediately above the Reflection beat.
+    hero: {
+      src: `${IMG}china-1-zoom2@2x.png`,
+      alt: "The China's Kleptocracy infographic: title, introduction, and portraits of the Politburo Standing Committee",
+      caption: "The published infographic",
+      narrow: true,
+      matte: true
+    },
     beats: [
       {
         type: "beat",
@@ -622,19 +627,6 @@ export default [
           "The Hudson Institute's Kleptocracy Initiative wanted an interactive infographic showing how Chinese political leaders amass fortunes and conceal them through family networks and opaque business groups. Working from materials Hudson's staff provided, I designed mockups in Sketch and built the final piece in HTML, jQuery, and CSS3 animation. I also copy-edited the accompanying articles and wrote the headline and subhead.",
           "The interactive graphic can be seen <a href=\"https://spinline.net/china/\">here</a>."
         ]
-      },
-      {
-        // Image-only beat: the prose was cut, the picture stays in sequence.
-        type: "beat",
-        images: [
-          {
-            src: `${IMG}china-2-zoom@2x.png`,
-            alt: "Detail from the China's Kleptocracy infographic",
-            zoom: true,
-            caption: "Detail from the published piece"
-          }
-        ],
-        layout: "inset"
       }
     ]
   },

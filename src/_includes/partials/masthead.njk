@@ -1,8 +1,8 @@
-<header class="masthead">
-  <div class="masthead__name">
+<header class="masthead{% if heroArt %} masthead--home{% endif %}">
+  {% if not heroArt %}<div class="masthead__name">
     <a href="/">{{ site.name }}</a>
     <span class="masthead__role">{{ site.title }}</span>
-  </div>
+  </div>{% endif %}
   <nav class="masthead__nav" aria-label="Main">
     <a href="/"{% if nav == "work" %} aria-current="page"{% endif %}>Work</a>
     <a href="/resume/"{% if nav == "resume" %} aria-current="page"{% endif %}>Résumé</a>

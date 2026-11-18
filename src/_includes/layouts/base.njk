@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    {% if site.adobeFontsKit %}<link rel="stylesheet" href="https://use.typekit.net/{{ site.adobeFontsKit }}.css">{% endif %}
     <link href="/css/site.css" rel="stylesheet">
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -31,5 +32,6 @@
     </main>
     {% include "partials/footer.njk" %}
     <script src="/js/zoom.js" defer></script>
+    {% if heroArt %}<script src="/js/hero-art.js" defer></script>{% endif %}
   </body>
 </html>

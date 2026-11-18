@@ -23,7 +23,7 @@ eleventyComputed:
   </header>
 
   {% if project.hero %}
-  <div class="hero-figure">
+  <div class="hero-figure{% if project.hero.narrow %} hero-figure--narrow{% endif %}{% if project.hero.matte %} hero-figure--matte{% endif %}">
     <div class="hero-figure__frame">
       <img src="{{ project.hero.src }}" alt="{{ project.hero.alt }}" fetchpriority="high" decoding="async">
     </div>
